@@ -17,6 +17,9 @@ interface ImageGridProps {
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
+  // Limitar el número de imágenes a 8
+  const limitedImages = images.slice(0, 8);
+
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,35 +35,43 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
   return (
     <div className={cx("image-grid")}>
       <div className={cx("image-grid__container")}>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={cx("image-grid__item")}
-            onClick={() => openLightbox(index)}
-          >
-            {image.href ? (
-              <a href={image.href}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  layout="responsive"
-                  width={300}
-                  height={200}
-                  className={cx("image-grid__image")}
-                />
-              </a>
-            ) : (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                layout="responsive"
-                width={300}
-                height={200}
-                className={cx("image-grid__image")}
-              />
-            )}
-          </div>
-        ))}
+        {limitedImages.map((image, index) => {
+          // Asignar clases "large" a los ítems 1 y 4 (índices 0 y 3)
+          const largeIndices = [0, 3];
+          const itemClass = largeIndices.includes(index)
+            ? "image-grid__item--large"
+            : "image-grid__item--normal";
+
+          return (
+            <div
+              key={index}
+              className={cx("image-grid__item", itemClass)}
+              onClick={() => openLightbox(index)}
+            >
+              <div className={cx("image-grid__image-wrapper")}>
+                {image.href ? (
+                  <a href={image.href}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className={cx("image-grid__image")}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </a>
+                ) : (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className={cx("image-grid__image")}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {open && (
@@ -68,7 +79,11 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
           open={open}
           index={currentIndex}
           close={closeLightbox}
-          slides={images.map((image) => ({ src: image.src, alt: image.alt }))}
+          controller={{ closeOnBackdropClick: true }}
+          slides={limitedImages.map((image) => ({
+            src: image.src,
+            alt: image.alt,
+          }))}
           styles={{
             container: {
               backgroundColor: "rgba(0, 0, 0, 0.8)",
