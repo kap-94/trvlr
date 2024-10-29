@@ -22,12 +22,11 @@
   }
 
   &__default {
-    filter: brightness(100) !important;
-    -webkit-filter: brightness(100);
   }
 
   &__light {
-    // Estilos específicos para el logo scrolled si es necesario
+    filter: brightness(0) !important;
+    -webkit-filter: brightness(0);
   }
 
   &__light--mobile {
