@@ -1,8 +1,10 @@
+// components/Header/Header.tsx
+
 "use client";
-import { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
+import { usePathname } from "next/navigation";
 import classnames from "classnames/bind";
-// import { convertLink, fixInvalidLink } from "@/app/utils";
-import { HeaderProps } from "./interfaces";
+import { HeaderProps, HeaderVariant } from "./interfaces";
 import HeaderLogo from "./HeaderLogo";
 import { Option } from "../Dropdown";
 import {
@@ -15,22 +17,17 @@ import styles from "./Header.module.scss";
 
 const cx = classnames.bind(styles);
 
-const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
-  // const router = useRouter();
-  // const selectedLanguage = router.locale;
-  const selectedLanguage = "es";
-  // let translatedUrlFr = fixInvalidLink(`${router.basePath}/fr`);
-  // let translatedUrlEn = fixInvalidLink(`${router.basePath}/`);
-
-  // if (translatedPages) {
-  //   if (translatedPages.fr) {
-  //     translatedUrlFr = convertLink(translatedPages.fr);
-  //   }
-  //   if (translatedPages.en) {
-  //     translatedUrlEn = convertLink(translatedPages.en);
-  //   }
-  // }
-  type HeaderVariant = "default" | "scrolled";
+const Header: FC<HeaderProps> = ({
+  data,
+  frontPageID,
+  translatedPages,
+  variant,
+  alwaysScrolledRoutes,
+}) => {
+  const pathname = usePathname(); // Obtiene la ruta actual
+  const isAlwaysScrolled = alwaysScrolledRoutes
+    ? alwaysScrolledRoutes.includes(pathname)
+    : false;
 
   const {
     buttonItems,
@@ -40,8 +37,16 @@ const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
     logos,
   } = data;
 
+  // Determina la variante inicial
+  const initialVariant: HeaderVariant = variant
+    ? variant
+    : isAlwaysScrolled
+    ? "scrolled"
+    : "default";
+
+  // Define el estado solo si no está forzado a "scrolled"
   const [currentVariant, setCurrentVariant] =
-    useState<HeaderVariant>("default");
+    useState<HeaderVariant>(initialVariant);
   const [hamburgerIsActive, setHamburgerIsActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
@@ -63,16 +68,18 @@ const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
     return acc;
   }, {} as Record<string, (typeof buttonItems)[0]>);
 
-  // const closeDropdowns = () => {
-  //   setDropdownStates({ bookNow: false, int: false, giftCards: false });
-  // };
-
   const toggleMenu = () => {
     setHamburgerIsActive(!hamburgerIsActive);
     // closeDropdowns();
   };
 
   useEffect(() => {
+    if (variant || isAlwaysScrolled) {
+      // Si se proporciona la prop 'variant' o estamos en una ruta que siempre está scrolled, no configurar el listener de scroll
+      setCurrentVariant(variant || "scrolled");
+      return;
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setCurrentVariant("scrolled"); // Cambia a 'scrolled' cuando hay scroll
@@ -82,15 +89,16 @@ const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
     };
 
     if (typeof window !== "undefined") {
-      document.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // Inicializa el estado basado en el scroll actual
     }
 
     return () => {
       if (typeof window !== "undefined") {
-        document.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, []);
+  }, [variant, isAlwaysScrolled, pathname]); // Añade dependencias
 
   const closeMenu = () => {
     setHamburgerIsActive(false);
@@ -98,7 +106,6 @@ const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
 
   return (
     <header
-      key={"router.asPath"}
       className={cx("header", {
         default: currentVariant === "default",
         light: currentVariant === "scrolled",
@@ -116,7 +123,6 @@ const Header: FC<HeaderProps> = ({ data, frontPageID, translatedPages }) => {
           />
         </div>
 
-        {/* <div className={cx("header__nav")}> */}
         <div className={cx("header__logo")}>
           <HeaderLogo
             data={logos}

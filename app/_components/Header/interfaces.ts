@@ -3,6 +3,8 @@ import { DropdownProps as DropdownItem } from "../Dropdown";
 import { MenuItem } from "../MenuList";
 import { Logos } from "./HeaderLogo";
 
+export type HeaderVariant = "default" | "scrolled";
+
 export interface HeaderProps {
   frontPageID: string;
   data: Data;
@@ -11,6 +13,8 @@ export interface HeaderProps {
     en?: string;
   };
   elevation?: 0 | 1 | 2 | 3 | 4 | 5;
+  variant?: HeaderVariant;
+  alwaysScrolledRoutes?: string[];
 }
 
 export type ButtonItemWithId = ButtonItem & { id: string };
