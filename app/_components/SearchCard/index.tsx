@@ -47,9 +47,9 @@ export const SearchCard: FC = () => {
       </div>
 
       <div className={cx("search-card__cta")}>
-        <Typography variant="p1" fontWeight={600} align="center" color="white">
+        {/* <Typography variant="p1" fontWeight={600} align="center" color="white">
           Prefer browsing our guides?
-        </Typography>
+        </Typography> */}
         <Button
           variant="link-light"
           href=""
