@@ -1,0 +1,19 @@
+// components/TravelGuideImages/TravelGuideImages.module.scss
+
+.travel-guide-images {
+  &__header {
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__grid {
+    // Puedes agregar estilos adicionales si es necesario
+  }
+}
