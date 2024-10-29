@@ -12,6 +12,7 @@ import Footer from "./Footer";
 import Hamburger from "./Hamburger/Hamburger";
 import Header from "./Header";
 import IconButton from "./IconButton";
+import ImageGrid from "./ImageGrid";
 import LayoutVariantsGrid from "./LayoutVariantsGrid";
 import MenuList from "./MenuList";
 import ResponsiveGrid from "./ResponsiveGrid";
@@ -36,6 +37,7 @@ export {
   Header,
   Icon,
   IconButton,
+  ImageGrid,
   LayoutVariantsGrid,
   MenuList,
   Rating,

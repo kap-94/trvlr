@@ -1,0 +1,162 @@
+// components/ImageGrid/ImageGrid.module.scss
+
+.image-grid {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      padding: 12px;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 8px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 6px;
+    }
+
+    @media (max-width: 480px) {
+      border-radius: 4px;
+    }
+  }
+
+  &__image {
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      border-radius: 6px;
+    }
+
+    @media (max-width: 480px) {
+      border-radius: 4px;
+    }
+  }
+
+  &__lightbox {
+    // Estilos específicos para el lightbox si son necesarios
+    // Por ejemplo, personalización de botones, captions, etc.
+  }
+
+  //   &__modal-content {
+  //     position: relative;
+  //   }
+
+  //   &__close-button {
+  //     position: absolute;
+  //     top: 8px;
+  //     right: 12px;
+  //     background: transparent;
+  //     border: none;
+  //     font-size: 24px;
+  //     cursor: pointer;
+  //     color: #333;
+  //     transition: color 0.2s ease;
+
+  //     &:hover {
+  //       color: #000;
+  //     }
+
+  //     @media (max-width: 768px) {
+  //       font-size: 20px;
+  //     }
+
+  //     @media (max-width: 480px) {
+  //       font-size: 18px;
+  //     }
+  //   }
+
+  //   &__modal-image {
+  //     border-radius: 8px;
+  //     max-width: 100%;
+
+  //     @media (max-width: 768px) {
+  //       border-radius: 6px;
+  //     }
+
+  //     @media (max-width: 480px) {
+  //       border-radius: 4px;
+  //     }
+  //   }
+
+  //   &__modal-caption {
+  //     margin-top: 8px;
+  //     text-align: center;
+  //     color: #666;
+
+  //     @media (max-width: 768px) {
+  //       margin-top: 6px;
+  //       font-size: 14px;
+  //     }
+
+  //     @media (max-width: 480px) {
+  //       margin-top: 4px;
+  //       font-size: 12px;
+  //     }
+  //   }
+
+  //   &__modal {
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     right: auto;
+  //     bottom: auto;
+  //     transform: translate(-50%, -50%);
+  //     background: #fff;
+  //     padding: 24px;
+  //     border-radius: 8px;
+  //     max-width: 90%;
+  //     max-height: 90%;
+  //     overflow: auto;
+  //     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  //     transition: padding 0.3s ease, border-radius 0.3s ease;
+
+  //     @media (max-width: 768px) {
+  //       padding: 16px;
+  //       border-radius: 6px;
+  //     }
+
+  //     @media (max-width: 480px) {
+  //       padding: 12px;
+  //       border-radius: 4px;
+  //     }
+  //   }
+
+  //   &__overlay {
+  //     background-color: rgba(0, 0, 0, 0.75);
+  //     z-index: 1000;
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: center;
+
+  //     @media (max-width: 768px) {
+  //       background-color: rgba(0, 0, 0, 0.7);
+  //     }
+
+  //     @media (max-width: 480px) {
+  //       background-color: rgba(0, 0, 0, 0.65);
+  //     }
+  //   }
+}
