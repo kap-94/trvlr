@@ -1,0 +1,14 @@
+.social-icons {
+  display: flex;
+
+  &__icon {
+    margin-right: 8px;
+
+    img {
+      transition: transform 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

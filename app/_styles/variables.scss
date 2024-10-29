@@ -1,0 +1,29 @@
+@import "functions.scss";
+
+$root-size: 16;
+// $grid-width: rem(calc(1120 + 64));
+$main-gap: 24px;
+
+// breakpoints
+$small: 480px;
+$medium: 768px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+// Colors
+$primary-color: #38abd9;
+$primary-color-dark: #1e5c75;
+$secondary-color: #4c7a70;
+$secondary-color-light: #7bbdaf;
+$accent-color: #e4fb20;
+$white-color: #fdfdff;
+$black-color: #000000;
+
+// Border Radious
+$card-radius: 12px;
+
+// Box Shadows
+// $shadow-primary: 0 15px 35px rgba(0, 0, 0, 0.1);
+$shadow-primary: 0 3px 12px 0 rgb(0 0 0/0.15);
+$shadow-blue: 0px 2px 10px rgba(0, 123, 255, 0.2);

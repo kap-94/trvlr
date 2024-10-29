@@ -1,0 +1,60 @@
+@import "../../_styles/variables.scss";
+
+.search-card {
+  align-items: center;
+  cursor: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1068px;
+  padding: 32px 40px;
+  transition: all 0.3s ease;
+
+  @media only screen and (max-width: 1200px) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding: 32px 24px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    margin-bottom: 72px;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 24px;
+    max-width: 600px;
+
+    @media only screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__trips-form {
+    width: 100%;
+
+    @media only screen and (max-width: 900px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: 900px) {
+      > p {
+        display: none;
+      }
+    }
+  }
+}

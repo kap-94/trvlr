@@ -1,0 +1,95 @@
+@import "../../_styles/functions.scss";
+@import "../../_styles/variables.scss";
+@import "../../_styles/mixins.scss";
+
+.popup {
+  background: #f4f7f6;
+  border: 1px solid #4c7a70;
+  bottom: 24px;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.35);
+  display: none;
+  gap: 24px;
+  padding: 24px;
+  position: fixed;
+  right: 24px;
+  visibility: hidden;
+
+  @media only screen and (max-width: 600px) {
+    justify-content: space-between;
+    left: 0;
+    margin: 0 24px;
+    width: calc(100% - 48px);
+  }
+
+  &Active {
+    display: flex;
+    visibility: visible;
+  }
+
+  &__button {
+    background: transparent;
+    border: 1px solid $secondary-colorAccentGreen;
+    color: $secondary-colorAccentGreen;
+    cursor: pointer;
+    font: inherit;
+    height: 2em;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    text-indent: 100%;
+    transition: all 0.2s ease-in;
+    width: 2em;
+
+    &:focus {
+      // outline: solid 0 transparent;
+      box-shadow: 0 0 0 1px $secondary-colorAccentGreen;
+    }
+
+    &:hover {
+      background: $secondary-colorAccentGreen;
+      color: #ffffff;
+    }
+
+    &:before,
+    &:after {
+      background: currentcolor;
+      border-radius: 0.125em;
+      content: "";
+      height: 50%;
+      left: calc(50% - 0.0625em);
+      position: absolute;
+      top: 25%;
+      transform: rotate(45deg);
+      width: 0.115em;
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__paragraph {
+    color: #2c2929;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 150%;
+    margin: 0;
+    margin-bottom: 18px;
+    max-width: 312px;
+  }
+
+  &__eyebrow {
+    color: #4c7a70;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 150%;
+    margin: 0;
+  }
+}

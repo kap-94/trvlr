@@ -1,0 +1,63 @@
+@import "../../_styles/variables.scss";
+
+.responsive-grid {
+  display: grid;
+  gap: $main-gap;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  ); // Acomoda automáticamente
+  // width: min-content;
+
+  &--2-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--3-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--4-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // Responsiveness
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+
+    & > * {
+      aspect-ratio: 2 / 1;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+
+  // @media (max-width: 768px) {
+  //   display: flex; // Cambiar a Flexbox
+  //   flex-direction: row; // Alinear los items en fila
+  //   overflow-x: auto; // Permitir desplazamiento horizontal
+  //   gap: var(--grid-gap, 1rem); // Mantener el gap entre items
+
+  //   // Opcional: ocultar las barras de desplazamiento en navegadores WebKit
+  //   &::-webkit-scrollbar {
+  //     display: none;
+  //   }
+
+  //   -ms-overflow-style: none; /* IE y Edge */
+  //   scrollbar-width: none; /* Firefox */
+
+  //   // Asegurar que los items no se envuelvan y mantengan su tamaño
+  //   & > * {
+  //     flex: 0 0 auto; // Evita que los items se encogen
+
+  //     min-width: 440px; // Asegura un ancho mínimo
+  //     height: 300px; // Añadir esta línea
+  //   }
+  // }
+}

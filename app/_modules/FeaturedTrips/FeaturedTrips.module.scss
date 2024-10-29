@@ -1,0 +1,26 @@
+@import "../../_styles/variables.scss";
+
+.featured-trips {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  padding: 90px 36px;
+
+  @media only screen and (max-width: $medium) {
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  &__heading {
+    max-width: 1200px;
+    width: 100%;
+    // padding-left: 32px;
+  }
+
+  &__content {
+    max-width: 1200px;
+    width: 100%;
+  }
+}

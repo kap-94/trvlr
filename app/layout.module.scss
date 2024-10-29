@@ -1,0 +1,8 @@
+@import "./_styles/variables.scss";
+
+.layout {
+  box-shadow: $shadow-blue;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: $white-color;
+}

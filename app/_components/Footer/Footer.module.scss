@@ -1,0 +1,130 @@
+@import "../../_styles/variables.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 88px 88px 28px;
+  background-color: $black-color;
+  text-align: center;
+  gap: 88px;
+
+  @media only screen and (max-width: 1160px) {
+    flex-direction: column;
+    padding: 64px 60px 28px;
+    gap: 24px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    padding: 48px 24px;
+  }
+
+  &__top {
+    display: flex;
+    width: 100%;
+
+    @media only screen and (max-width: 1160px) {
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    & > * {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media only screen and (max-width: 1160px) {
+        // flex: none;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__logo {
+    justify-content: flex-start;
+
+    @media only screen and (max-width: 1160px) {
+      justify-content: center;
+    }
+
+    img {
+      filter: brightness(100);
+      -webkit-filter: brightness(100);
+    }
+  }
+
+  &__links {
+    justify-content: center;
+    gap: rem(24);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 1160px) {
+      gap: 16px;
+
+      li a::after {
+        display: none; // Elimina los separadores en pantallas más pequeñas
+      }
+    }
+
+    @media only screen and (max-width: 680px) {
+      gap: 12px;
+    }
+
+    li a {
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        color: #286457;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -rem(12);
+        top: 50%;
+        transform: translateY(-50%);
+        height: 60%;
+        border-right: rem(1) solid #b7cac6;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+
+  &__icons {
+    justify-content: flex-end;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    @media only screen and (max-width: 1160px) {
+      gap: 24px;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 680px) {
+      gap: 16px;
+    }
+  }
+
+  &__copyright {
+    // position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: $white-color;
+  }
+}

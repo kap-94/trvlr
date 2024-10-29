@@ -1,0 +1,36 @@
+.logo {
+  display: grid;
+  grid-template-areas: "logo";
+
+  &__image {
+    grid-area: logo;
+  }
+
+  &--visible {
+    opacity: 1;
+    filter: blur(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out,
+      filter 0.3s ease-out;
+  }
+
+  &--hidden {
+    opacity: 0;
+    filter: blur(4px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out,
+      filter 0.3s ease-out;
+    pointer-events: none;
+  }
+
+  &__default {
+    filter: brightness(100) !important;
+    -webkit-filter: brightness(100);
+  }
+
+  &__light {
+    // Estilos específicos para el logo scrolled si es necesario
+  }
+
+  &__light--mobile {
+    display: none;
+  }
+}

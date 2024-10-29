@@ -1,0 +1,378 @@
+@import "../../_styles/variables.scss";
+
+.header {
+  max-width: 1920px;
+  position: fixed;
+  padding: 0 80px;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+
+  /* Fondo con gradiente y transparencia (de arriba hacia abajo) */
+  background-image: linear-gradient(
+    180deg,
+    /* Cambiado a vertical */ rgba(255, 255, 255, 0.3) 0%,
+    /* Parte superior más opaca */ rgba(255, 255, 255, 0.1) 60%,
+    /* Transición a menos opaco */ rgba(255, 255, 255, 0.05) 100%
+      /* Parte inferior casi transparente */
+  );
+  /* Efecto de desenfoque intenso para el video */
+  backdrop-filter: blur(20px); /* Desenfoque más fuerte */
+  -webkit-backdrop-filter: blur(20px);
+
+  @media only screen and (max-width: 1080px) {
+    padding: 0 24px;
+  }
+
+  &__inner-wrapper {
+    padding: 20px 0;
+    position: relative;
+    // overflow-x: clip;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "logo logo menu-primary  menu-primary menu-primary  menu-secondary menu-secondary";
+    align-items: center;
+
+    &::before {
+      content: "";
+      width: 100%;
+      opacity: 0.3;
+      color: #f4f7f6;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      border-bottom: 1px solid;
+    }
+
+    @media only screen and (max-width: 1080px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "hamburger logo menu-secondary";
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    display: flex;
+    justify-content: flex-start;
+
+    @media only screen and (max-width: 1080px) {
+      justify-content: center;
+    }
+  }
+
+  &__hamburger {
+    grid-area: hamburger;
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(244, 247, 246, 0.5);
+    z-index: 10000000;
+
+    @media only screen and (max-width: 1080px) {
+      display: flex;
+      width: fit-content;
+    }
+
+    button {
+      padding: 12px;
+    }
+
+    button span {
+      display: flex;
+      justify-content: center;
+      height: 24px;
+      width: 24px;
+    }
+
+    button span span {
+      &,
+      &::before,
+      &::after {
+        background-color: #f4f7f6 !important;
+        height: 2px;
+        width: 24px;
+      }
+    }
+  }
+
+  &__menu--primary {
+    //   position: absolute;
+    //   right: 50%;
+    //   transform: translateX(50%);
+    //   z-index: 1;
+    grid-area: menu-primary;
+    justify-content: center;
+
+    @media only screen and (max-width: 1080px) {
+      display: none;
+    }
+
+    // & > ul li:first-of-type img {
+    //   transform: scale(1.35) !important;
+    // }
+  }
+
+  &__menu--secondary {
+    grid-area: menu-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    z-index: 1;
+
+    @media only screen and (max-width: 1080px) {
+      ul {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+      transition: opacity 0.24s ease, transform 0.24s ease, filter 0.24s ease;
+    }
+
+    &--hidden {
+      opacity: 0;
+      transform: translateY(-16px);
+      filter: blur(4px);
+      -webkit-filter: blur(4px);
+      transition: opacity 0.24s ease, transform 0.24s ease, filter 0.24s ease;
+      pointer-events: none;
+    }
+  }
+
+  &__sign-in-button {
+    grid-area: button;
+    justify-self: end;
+    transition: none !important;
+    gap: 0;
+  }
+
+  .light-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    background: $white-color;
+    transition: all 0.24s;
+  }
+
+  &.light {
+    .header {
+      &__inner-wrapper {
+        display: flex;
+        justify-content: unset;
+        gap: 16px;
+        padding: 24px 0;
+
+        @media only screen and (max-width: 1440px) {
+          display: grid;
+          gap: unset;
+          grid-column-gap: 16px;
+          grid-template-columns: repeat(12, 1fr);
+          grid-template-rows: auto;
+          grid-template-areas:
+            "logo logo menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary  menu-secondary  menu-secondary  menu-secondary menu-secondary button"
+            "menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary";
+          padding: 20px 0 8px;
+        }
+
+        @media only screen and (max-width: 1200px) {
+          grid-template-areas:
+            "logo logo menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary menu-secondary button"
+            "menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary menu-primary";
+        }
+
+        @media only screen and (max-width: 768px) {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas: "hamburger logo button";
+          padding: 20px 0;
+        }
+      }
+
+      &__hamburger {
+        display: none;
+
+        button span span {
+          &,
+          &::before,
+          &::after {
+            background-color: $black-color !important;
+            height: 2px;
+            width: 24px;
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          display: unset;
+        }
+      }
+
+      &__logo {
+        justify-content: flex-start;
+
+        @media only screen and (max-width: 1080px) {
+          justify-content: center;
+        }
+      }
+
+      &__menu--primary,
+      &__menu--secondary {
+        ul {
+          gap: 20px;
+
+          p {
+            color: $black-color !important;
+          }
+        }
+
+        i img {
+          filter: brightness(0);
+        }
+      }
+
+      &__menu--primary {
+        display: flex;
+        gap: 24px;
+        position: relative;
+        margin-left: 24px;
+        justify-content: flex-start;
+
+        @media only screen and (max-width: 1440px) {
+          margin-left: 0;
+          justify-content: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+          display: none !important;
+        }
+      }
+
+      &__menu--secondary {
+        flex: 1;
+
+        @media only screen and (max-width: 1440px) {
+          justify-content: center;
+        }
+      }
+
+      &__menu--secondary,
+      &__search-form {
+        @media only screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      &__sign-in-button-container {
+        display: flex;
+        justify-self: end;
+      }
+    }
+
+    .light-overlay {
+      bottom: 0;
+      box-shadow: $shadow-blue;
+    }
+  }
+}
+
+.mobile {
+  display: none;
+  background: $white-color;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  right: 100%;
+  top: 0;
+  transition: all 0.56s ease;
+  width: 100%;
+  z-index: 1;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+
+  &__hamburger {
+    visibility: hidden;
+  }
+
+  &__logo {
+    filter: brightness(0);
+    transform: translateX(50%);
+  }
+
+  &__menu {
+    border-top: 1px solid rgba($black-color, 0.5);
+    display: flex;
+    margin: 0;
+    padding: 36px 24px;
+    // flex: 1;
+    // overflow: scroll;
+
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    li a {
+      gap: 0;
+
+      p {
+        font-style: normal;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $black-color !important;
+      }
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  @media all and (max-width: 1200px) {
+    display: flex;
+  }
+}
+
+.open {
+  padding-left: 24px;
+
+  .header {
+    &__hamburger {
+      border-width: 1.5px;
+      border-color: rgba($black-color, 0.5);
+      // visibility: hidden;
+
+      button span span {
+        &,
+        &::before,
+        &::after {
+          background-color: $black-color !important;
+          height: 2px;
+          width: 24px;
+        }
+      }
+    }
+
+    &__logo,
+    &__menu--secondary {
+      @media only screen and (max-width: 768px) {
+        padding-left: 0px;
+      }
+    }
+  }
+
+  .mobile {
+    right: 0;
+  }
+}

@@ -1,0 +1,229 @@
+// Button.module.scss
+@import "../../_styles/variables.scss";
+@import "../../_styles/mixins.scss";
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  white-space: nowrap; /* Reemplaza text-wrap: nowrap; */
+  width: fit-content;
+  text-decoration: none;
+
+  // &:hover {
+  //   transform: translateY(-3px);
+  // }
+
+  // &:active,
+  // &:focus {
+  //   box-shadow: 0 5px 12.5px rgba(0, 0, 0, 0.07);
+  //   transform: translateY(-1px);
+  // }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-left: 12px; /* Mantenemos el margen consistente */
+  }
+
+  &__spinner {
+    margin-left: 8px; /* Igual que los íconos */
+    display: flex;
+    align-items: center;
+  }
+
+  &--small {
+    padding: 12px;
+    gap: 4px;
+
+    &.button--pill {
+      border-radius: 16px;
+    }
+
+    .button__text {
+      font-size: rem(12);
+      font-weight: 600;
+      line-height: rem(15);
+      letter-spacing: rem(0.036);
+    }
+  }
+
+  &--medium {
+    padding: 17px 16px;
+
+    &.button--pill {
+      border-radius: 20px;
+    }
+
+    .button__text {
+      font-size: rem(14);
+      font-weight: 600;
+      line-height: rem(17);
+      letter-spacing: rem(0.042);
+    }
+  }
+
+  &--large {
+    padding: 20px 18px;
+
+    &.button--pill {
+      border-radius: 24px;
+    }
+
+    .button__text {
+      font-size: rem(16);
+      font-weight: 700;
+      line-height: rem(20);
+      letter-spacing: rem(0.048);
+    }
+  }
+
+  &--primary {
+    background-color: $primary-color;
+
+    &:hover {
+      filter: brightness(1.1);
+      // background-color: $ui-aqua;
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .button__text {
+      color: $white-color;
+    }
+
+    .button__icon {
+      filter: brightness(0) invert(100%) sepia(33%) saturate(3729%)
+        hue-rotate(180deg) brightness(104%) contrast(113%);
+    }
+  }
+
+  &--accent {
+    background-color: $accent-color;
+
+    &:hover {
+      filter: brightness(1.1);
+      // background-color: $ui-aqua;
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .button__text {
+      color: $white-color;
+    }
+
+    .button__icon {
+      filter: brightness(0) invert(100%) sepia(33%) saturate(3729%)
+        hue-rotate(180deg) brightness(104%) contrast(113%);
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: $secondary-color-light;
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .button__icon {
+      filter: brightness(0) invert(25%) sepia(16%) saturate(1346%)
+        hue-rotate(194deg) brightness(96%) contrast(98%);
+    }
+  }
+
+  &--link-light {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid $white-color;
+    padding: 8px 0;
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:active,
+    &:focus {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .button__text {
+      color: $white-color;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .button__icon {
+      filter: brightness(100);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--link-dark {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid $black-color;
+    padding: 8px 0;
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:active,
+    &:focus {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .button__text {
+      color: $black-color;
+      font-size: 15px;
+    }
+
+    .button__icon {
+      filter: brightness(0);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--elevation-0 {
+    @include elevation(0);
+  }
+  &--elevation-1 {
+    @include elevation(1);
+  }
+  &--elevation-2 {
+    @include elevation(2);
+  }
+  &--elevation-3 {
+    @include elevation(3);
+  }
+  &--elevation-4 {
+    @include elevation(4);
+  }
+  &--elevation-5 {
+    @include elevation(5);
+  }
+}

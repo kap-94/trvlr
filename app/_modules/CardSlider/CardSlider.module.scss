@@ -1,0 +1,114 @@
+@import "../../_styles/functions.scss";
+@import "../../_styles/variables.scss";
+@import "../../_styles/scandinave-colors.scss";
+.slider {
+  padding: rem(100) 0;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrapper {
+    width: rem(1140);
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; // Agrega el relative aquí para que los botones sean relativos al contenido
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f7f6;
+    border: 1px solid $primary-color;
+    border-radius: rem(4);
+    color: #2c2929;
+    cursor: pointer;
+    height: rem(48);
+    width: rem(48);
+    font-size: rem(14);
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    text-align: center;
+    line-height: 1;
+    position: absolute;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(
+      -50%
+    ); /* Centrar verticalmente con respecto al contenido */
+
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+    }
+
+    &--prev {
+      left: rem(-60); // Ajusta la distancia según el contenedor del contenido
+    }
+
+    &--next {
+      right: rem(-60); // Ajusta la distancia según el contenedor del contenido
+    }
+  }
+
+  &__eyebrow {
+    color: #4c7a70;
+
+    font-size: rem(13);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 120%;
+    margin: 0;
+    margin-bottom: rem(16);
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    color: #2c2929;
+
+    font-size: rem(64);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    margin: 0;
+    margin-bottom: rem(48);
+    padding: 0;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 900px) {
+    &__wrapper {
+      width: rem(1160);
+      transform: translateX(rem(24));
+    }
+
+    &__button {
+      right: rem(20); // Ajustado para pantallas más pequeñas
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &__button--prev {
+      left: rem(20);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    &__button {
+      display: none;
+    }
+
+    &__wrapper {
+      width: rem(616);
+    }
+  }
+}

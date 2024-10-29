@@ -1,0 +1,33 @@
+@import "../../_styles/variables.scss";
+@import "../../_styles/mixins.scss";
+
+.blog-card {
+  display: flex;
+  text-decoration: none;
+
+  &__image-container {
+    border-radius: calc($card-radius / 2);
+    margin-right: 16px;
+    position: relative;
+    height: 90px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 300px;
+  }
+
+  &:hover {
+    p {
+      text-decoration: underline;
+    }
+  }
+}

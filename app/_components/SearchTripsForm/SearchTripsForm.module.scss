@@ -1,0 +1,353 @@
+@import "../../_styles/variables.scss";
+
+.form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  grid-template-areas: "destination start-date end-date people button";
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 28px;
+
+  &__destination {
+    grid-area: destination;
+    input {
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+    }
+  }
+
+  &__start-date {
+    grid-area: start-date;
+  }
+
+  &__end-date {
+    grid-area: end-date;
+  }
+
+  &__people {
+    grid-area: people;
+  }
+
+  &__button {
+    grid-area: button;
+    height: 100%;
+    transform: translateX(-8px);
+    padding-inline: 20px;
+    border-radius: 12px;
+
+    i img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      width: 1px;
+      height: 60%;
+      background-color: rgba($black-color, 0.15);
+    }
+
+    label {
+      color: rgba($black-color, 0.8) !important;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      position: absolute;
+      left: 22px;
+      top: 16px;
+      z-index: 1;
+
+      @media only screen and (max-width: 900px) {
+        top: 12px;
+      }
+    }
+
+    input,
+    .react-datepicker-wrapper {
+      border: none;
+      background-color: $white-color;
+      background-color: rgb(240, 243, 245);
+      color: $black-color;
+      font-size: 15px;
+      padding: 35px 22px 20px;
+      width: 100%;
+      transition: all 0.2s ease;
+
+      @media only screen and (max-width: 900px) {
+        padding: 30px 22px 12px;
+      }
+
+      &::placeholder {
+        color: $black-color;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: $black-color;
+        outline: none;
+        box-shadow: $shadow-blue;
+      }
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "destination destination destination"
+      "start-date end-date people"
+      "button button button";
+    max-width: 800px;
+    margin-bottom: unset !important;
+    row-gap: 16px;
+
+    &__start-date::after,
+    &__end-date::after {
+      content: "" !important;
+      position: absolute;
+      right: 0;
+      top: 20%;
+      width: 1px;
+      height: 60%;
+      background-color: rgba($black-color, 0.15);
+    }
+
+    &__destination {
+      input {
+        border-radius: 12px;
+      }
+    }
+
+    &__start-date {
+      input {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+    }
+
+    &__people {
+      input {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+    }
+
+    &__input-group {
+      width: 100%;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &__button {
+      grid-area: button;
+      padding-block: 20px;
+      font-size: 14px;
+      border-radius: 10 px;
+      transform: unset;
+      width: 100%;
+    }
+  }
+
+  // Media query para pantallas pequeñas
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "destination destination"
+      "people people"
+      "start-date end-date"
+      "button button";
+
+    // Aplica el border-radius a las áreas destination y people
+    &__destination,
+    &__people {
+      input {
+        border-radius: 12px;
+      }
+    }
+
+    &__start-date::after,
+    &__end-date::after {
+      // Penúltimo input group
+      content: none !important;
+    }
+
+    &__start-date {
+      &::after {
+        content: "" !important;
+        position: absolute;
+        right: 0;
+        top: 20%;
+        width: 1px;
+        height: 60%;
+
+        input {
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+      }
+    }
+
+    &__end-date {
+      input {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+    }
+
+    &__input-group {
+      width: 100%;
+
+      input,
+      .react-datepicker-wrapper {
+        padding: 24px 16px 11px;
+        font-size: 13px;
+      }
+
+      label {
+        font-size: 10px;
+        left: 16px;
+        top: 8px;
+      }
+    }
+  }
+}
+
+// Modificaciones para la variante 'small'
+.form.small {
+  max-width: 640px;
+  margin-bottom: unset !important;
+
+  .form {
+    &__input-group {
+      input,
+      .react-datepicker-wrapper {
+        padding: 24px 16px 11px !important;
+        font-size: 13px;
+      }
+
+      label {
+        font-size: 10px;
+        left: 16px;
+        top: 8px;
+      }
+    }
+
+    &__people {
+      width: 120px;
+    }
+
+    &__button {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr) auto;
+    grid-template-rows: auto;
+    grid-template-areas: "destination start-date end-date people button";
+    max-width: unset;
+    // margin-bottom: 28px;
+
+    .form {
+      &__input-group {
+        input {
+          border-radius: 0;
+        }
+      }
+
+      &__destination {
+        input {
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 20%;
+          width: 1px;
+          height: 60%;
+          background-color: rgba($black-color, 0.15);
+        }
+      }
+
+      &__destination {
+        input {
+          border-radius: 0;
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+      }
+
+      &__people {
+        width: unset;
+      }
+
+      &__button {
+        margin: unset;
+        transform: translateX(-2px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          padding-inline: 2px;
+          margin: unset;
+
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+        p {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  // Media query para 'small' en pantallas pequeñas
+  @media (max-width: 768px) {
+    &__input-group {
+      width: auto;
+
+      input,
+      .react-datepicker-wrapper {
+        padding: 36px 22px 20px;
+        font-size: 15px;
+      }
+
+      label {
+        font-size: 11px;
+        left: 22px;
+        top: 16px;
+      }
+    }
+  }
+}
