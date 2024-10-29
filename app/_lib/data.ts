@@ -242,10 +242,9 @@ export const headerData: HeaderProps = {
         menu_item_id: 738,
         menu_item_parent: 0,
         title: "Travel Guides",
-        target: "/packages",
-        url: "/packages",
+        target: "/_self",
+        url: "/travel-guides",
         icon: "compass",
-        showDropdownIcon: false,
       },
       // {
       //   menu_item_id: 737,
