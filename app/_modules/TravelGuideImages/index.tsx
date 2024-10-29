@@ -1,13 +1,10 @@
-// components/TravelGuideImages/TravelGuideImages.tsx
-
 import React from "react";
 import styles from "./TravelGuideImages.module.scss";
 import classNames from "classnames/bind";
-import { Typography, ImageGrid, SectionHeading } from "@/app/_components";
+import { ImageGrid, SectionHeading } from "@/app/_components";
 
 const cx = classNames.bind(styles);
 
-// Define las propiedades del componente si es necesario
 interface TravelGuideImagesProps {
   title: string;
   subtitle?: string;

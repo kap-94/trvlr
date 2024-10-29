@@ -1,19 +1,25 @@
-// components/TravelGuideImages/TravelGuideImages.module.scss
-
 .travel-guide-images {
+  margin-top: 100px;
+  padding: 88px 60px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 60px 24px;
+  }
+
   &__header {
     margin-bottom: 24px;
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) {
       margin-bottom: 20px;
     }
 
-    @media (max-width: 480px) {
+    @media only screen and (max-width: 480px) {
       margin-bottom: 16px;
     }
   }
 
   &__grid {
-    // Puedes agregar estilos adicionales si es necesario
+    max-width: 1200px;
+    margin-inline: auto;
   }
 }
