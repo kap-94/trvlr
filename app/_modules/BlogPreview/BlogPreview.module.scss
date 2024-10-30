@@ -14,7 +14,7 @@
   //   }
 
   @media only screen and (max-width: $medium) {
-    padding: 80px 24px;
+    padding: 48px 24px;
     gap: 40px;
   }
 
@@ -30,6 +30,7 @@
 
     @media only screen and (max-width: $xlarge) {
       flex-direction: column;
+      gap: 48px;
     }
   }
 
