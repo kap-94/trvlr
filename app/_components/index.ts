@@ -14,8 +14,10 @@ import Header from "./Header";
 import IconButton from "./IconButton";
 import ImageGrid from "./ImageGrid";
 import LayoutVariantsGrid from "./LayoutVariantsGrid";
+import LeafletMap from "./LeafletMap";
 import MenuList from "./MenuList";
 import ResponsiveGrid from "./ResponsiveGrid";
+import ScrollImage from "./ScrollImage";
 import SearchCard from "./SearchCard";
 import SearchTripsForm from "./SearchTripsForm";
 import SectionHeading from "./SectionHeading";
@@ -39,9 +41,11 @@ export {
   IconButton,
   ImageGrid,
   LayoutVariantsGrid,
+  LeafletMap,
   MenuList,
   Rating,
   ResponsiveGrid,
+  ScrollImage,
   SearchCard,
   SearchTripsForm,
   SectionHeading,
