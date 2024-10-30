@@ -259,7 +259,7 @@ export const headerData: HeaderProps = {
         menu_item_parent: 0,
         // title: "Blog & Beyond",
         title: "Explorer's Blog",
-        target: "/blog",
+        target: "_self",
         url: "/blog",
         icon: "grid-view",
       },
