@@ -27,6 +27,7 @@ export interface ButtonBaseProps {
 interface LinkVariantProps extends ButtonBaseProps {
   variant: "link-light" | "link-dark";
   href: string; // href es obligatorio para estos variants
+  target: "_blank" | "_self";
   isDisabled?: never; // isDisabled no es válido para enlaces
 }
 
@@ -34,6 +35,7 @@ interface LinkVariantProps extends ButtonBaseProps {
 interface NonLinkVariantProps extends ButtonBaseProps {
   variant?: "primary" | "secondary" | "accent";
   href?: undefined;
+  target?: undefined;
   isDisabled?: boolean; // Nueva prop isDisabled solo para botones no enlazados
 }
 
@@ -55,7 +57,8 @@ export const Button: React.FC<ButtonProps> = React.memo(
     style,
     elevation = 0,
     href,
-    isLoading = false, // Valor por defecto para isLoading
+    isLoading = false,
+    target,
   }) => {
     // Solo aplicamos isDisabled si está definido (solo para NonLinkVariantProps)
     const actualDisabled = isDisabled || isLoading;
@@ -80,7 +83,7 @@ export const Button: React.FC<ButtonProps> = React.memo(
           href={href}
           className={buttonClasses}
           style={style}
-          target="_blank"
+          target={target}
           rel="noopener noreferrer"
         >
           <Typography
