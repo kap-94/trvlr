@@ -1,13 +1,13 @@
 .travel-guide-images {
   margin-top: 100px;
-  padding: 88px 60px;
+  padding: 88px 48px 64px;
 
   @media only screen and (max-width: 768px) {
-    padding: 60px 24px;
+    padding: 64px 24px 32px;
   }
 
   &__header {
-    margin-bottom: 24px;
+    margin-bottom: 48px;
 
     @media only screen and (max-width: 768px) {
       margin-bottom: 20px;
