@@ -1,0 +1,55 @@
+@import "../../_styles/variables.scss";
+
+.leaflet-map {
+  &__container {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+
+    @media only screen and (max-width: 768px) {
+      height: 480px;
+    }
+  }
+
+  .popup-content {
+    padding: 8px 0 16px;
+
+    &__title {
+      margin-bottom: 8px;
+    }
+
+    &__image-container {
+      position: relative;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      // height: 160px;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+
+    &__image {
+      object-fit: cover;
+    }
+
+    &__excerpt {
+      margin-bottom: 16px;
+    }
+
+    &__button {
+      display: flex;
+      padding: 14px;
+      margin: 0 auto;
+      background-color: $primary-color;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      border: unset;
+      transition: background-color 0.3s ease;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
