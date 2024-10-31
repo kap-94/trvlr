@@ -1,7 +1,9 @@
+"use client";
+
 import { FC } from "react";
 import classNames from "classnames/bind";
 import Link from "next/link";
-import CustomIcon, { IconName } from "../CustomIcon";
+import Icon, { IconName } from "../CustomIcon";
 import { Card, Typography } from "@/app/_components";
 import { CardData } from "../Card/interfaces";
 import styles from "./TripCard.module.scss";
@@ -50,7 +52,7 @@ export const TripCard: FC<TripCardProps> = ({ data, className }) => {
             className={cx("card__image")}
           />
           <div className={cx("card__icon-container")}>
-            <CustomIcon
+            <Icon
               icon={icon}
               className={cx("card__icon")}
               height={20}
