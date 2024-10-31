@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames/bind";
-import { Category, Location } from "../../_modules/BlogArticleList";
+import { Category, Location } from "@/app/_modules/BlogArticleList";
 import { Typography } from "@/app/_components";
 import styles from "./BlogCard.module.scss";
 
