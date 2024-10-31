@@ -1,6 +1,7 @@
 import { Rating } from "./Rating";
 import { Tags } from "./Tags";
 import BlogListCard from "./BlogListCard";
+import BlogCard from "./BlogCard";
 import Button from "./Button";
 import Card from "./Card";
 import DestinationDropdown from "./DestinationDropdown";
@@ -28,6 +29,7 @@ import VideoPlayer from "./VideoPlayer";
 
 export {
   BlogListCard,
+  BlogCard,
   Button,
   Card,
   DestinationDropdown,
