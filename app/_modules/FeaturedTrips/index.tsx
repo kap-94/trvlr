@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 import classnames from "classnames/bind";
 import { featuredTripsData } from "@/app/_lib/data";
@@ -7,17 +6,12 @@ import styles from "./FeaturedTrips.module.scss";
 
 const cx = classnames.bind(styles);
 
-interface Props {
-  title: string;
-  subtitle: string;
-}
-
-const FeaturedTrips: FC<Props> = ({ title, subtitle }) => {
+const FeaturedTrips: FC = () => {
   return (
     <section className={cx("featured-trips")} id={"featured-trips"}>
       <SectionHeading
-        title={title}
-        subtitle="Discover handpicked journeys tailored for the ultimate travel experience."
+        title={"The Hotest Trips"}
+        subtitle="Discover the most amazing adventures, collect experiences for life."
         className={cx("featured-trips__heading")}
       />
 
