@@ -1,3 +1,4 @@
+import BlogArticleList from "./BlogArticleList";
 import BlogPreview from "./BlogPreview";
 import FeaturedTrips from "./FeaturedTrips";
 import HeroVideo from "./HeroVideo";
@@ -7,6 +8,7 @@ import TravelGuideImages from "./TravelGuideImages";
 import TravelGuideMap from "./TravelGuideMap";
 
 export {
+  BlogArticleList,
   BlogPreview,
   FeaturedTrips,
   HeroVideo,
