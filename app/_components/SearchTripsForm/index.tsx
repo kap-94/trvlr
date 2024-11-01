@@ -9,6 +9,7 @@ import { useOutsideClick } from "@/app/_hooks/useOutsideClick";
 import "react-datepicker/dist/react-datepicker.css";
 import "./datepicker.scss";
 import styles from "./SearchTripsForm.module.scss";
+import { raleway } from "@/app/_fonts";
 
 const cx = classNames.bind(styles);
 
@@ -134,7 +135,7 @@ export const SearchTripsForm: FC<SearchTripsFormProps> = ({
               name="destination"
               placeholder="Where to?"
               autoComplete="off"
-              className={cx("form__input")}
+              className={cx("form__input", raleway.className)}
               onClick={() => handleDestinationClick(values.destination)}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleDestinationChange(e.target.value, setFieldValue)
@@ -161,6 +162,7 @@ export const SearchTripsForm: FC<SearchTripsFormProps> = ({
             <DatePicker
               id="startDate"
               name="startDate"
+              className={raleway.className}
               autoComplete="off"
               closeOnScroll={true}
               dateFormat="dd/MM/yyyy"
@@ -189,6 +191,7 @@ export const SearchTripsForm: FC<SearchTripsFormProps> = ({
             <DatePicker
               id="endDate"
               name="endDate"
+              className={raleway.className}
               autoComplete="off"
               closeOnScroll={true}
               dateFormat="dd/MM/yyyy"
@@ -221,7 +224,7 @@ export const SearchTripsForm: FC<SearchTripsFormProps> = ({
               name="people"
               min={1}
               placeholder="How many?"
-              className={cx("form__input")}
+              className={cx("form__input", raleway.className)}
               autoComplete="off"
             />
           </div>
