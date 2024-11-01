@@ -55,7 +55,7 @@ export const BlogCard = (post: Post) => {
             {title && (
               <Typography
                 variant="h3"
-                fontWeight={500}
+                // fontWeight={600}
                 // fontFamily="raleway"
                 className={cx("blog-card__title")}
               >
@@ -65,7 +65,7 @@ export const BlogCard = (post: Post) => {
             {excerpt && (
               <Typography
                 variant="p1"
-                fontWeight={400}
+                // fontWeight={400}
                 className={cx("blog-card__excerpt")}
               >
                 {excerpt}
