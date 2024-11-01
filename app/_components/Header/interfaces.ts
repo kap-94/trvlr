@@ -14,7 +14,7 @@ export interface HeaderProps {
   };
   elevation?: 0 | 1 | 2 | 3 | 4 | 5;
   variant?: HeaderVariant;
-  alwaysScrolledRoutes?: string[];
+  defaultVariantRoutes?: string[];
 }
 
 export type ButtonItemWithId = ButtonItem & { id: string };

@@ -1,5 +1,3 @@
-// components/Header/Header.tsx
-
 "use client";
 import React, { useState, useEffect, FC } from "react";
 import { usePathname } from "next/navigation";
@@ -22,12 +20,13 @@ const Header: FC<HeaderProps> = ({
   frontPageID,
   translatedPages,
   variant,
-  alwaysScrolledRoutes,
+  defaultVariantRoutes,
 }) => {
-  const pathname = usePathname(); // Obtiene la ruta actual
-  const isAlwaysScrolled = alwaysScrolledRoutes
-    ? alwaysScrolledRoutes.includes(pathname)
-    : false;
+  const pathname = usePathname();
+
+  // Check if current path should use default variant
+  const isDefaultVariantRoute =
+    defaultVariantRoutes?.includes(pathname) ?? false;
 
   const {
     buttonItems,
@@ -37,60 +36,55 @@ const Header: FC<HeaderProps> = ({
     logos,
   } = data;
 
-  // Determina la variante inicial
-  const initialVariant: HeaderVariant = variant
-    ? variant
-    : isAlwaysScrolled
-    ? "scrolled"
-    : "default";
+  // If variant prop is provided, use it
+  // Otherwise, use "default" only for routes in defaultVariantRoutes, "scrolled" for all others
+  const initialVariant: HeaderVariant =
+    variant ?? (isDefaultVariantRoute ? "default" : "scrolled");
 
-  // Define el estado solo si no está forzado a "scrolled"
   const [currentVariant, setCurrentVariant] =
     useState<HeaderVariant>(initialVariant);
   const [hamburgerIsActive, setHamburgerIsActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-  // Función para manejar la selección de la opción
   const handleDropdownToggle = (option: Option) => {
-    setSelectedOption(option); // Actualiza el estado con la opción seleccionada
+    setSelectedOption(option);
     console.log(`Opción seleccionada:`, option);
   };
 
-  // Crea un objeto de mapeo para dropdownItems
   const dropdownMapping = dropdownItems.reduce((acc, item) => {
-    acc[item.id] = item; // Mapeamos cada item por su id
+    acc[item.id] = item;
     return acc;
   }, {} as Record<string, (typeof dropdownItems)[0]>);
 
-  // Crea un objeto de mapeo para buttonItems
   const buttonMapping = buttonItems.reduce((acc, item) => {
-    acc[item.id] = item; // Mapeamos cada item por su id
+    acc[item.id] = item;
     return acc;
   }, {} as Record<string, (typeof buttonItems)[0]>);
 
   const toggleMenu = () => {
     setHamburgerIsActive(!hamburgerIsActive);
-    // closeDropdowns();
   };
 
   useEffect(() => {
-    if (variant || isAlwaysScrolled) {
-      // Si se proporciona la prop 'variant' o estamos en una ruta que siempre está scrolled, no configurar el listener de scroll
-      setCurrentVariant(variant || "scrolled");
+    // If variant prop is provided or we're not on a default variant route,
+    // don't set up scroll listener - maintain either the forced variant or scrolled state
+    if (variant || !isDefaultVariantRoute) {
+      setCurrentVariant(variant ?? "scrolled");
       return;
     }
 
+    // Only add scroll behavior for default variant routes
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setCurrentVariant("scrolled"); // Cambia a 'scrolled' cuando hay scroll
+        setCurrentVariant("scrolled");
       } else {
-        setCurrentVariant("default"); // Cambia a 'default' cuando no hay scroll
+        setCurrentVariant("default");
       }
     };
 
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
-      handleScroll(); // Inicializa el estado basado en el scroll actual
+      handleScroll(); // Initialize based on current scroll position
     }
 
     return () => {
@@ -98,7 +92,7 @@ const Header: FC<HeaderProps> = ({
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [variant, isAlwaysScrolled, pathname]); // Añade dependencias
+  }, [variant, isDefaultVariantRoute, pathname]);
 
   const closeMenu = () => {
     setHamburgerIsActive(false);
@@ -116,11 +110,7 @@ const Header: FC<HeaderProps> = ({
 
       <div className={cx("header__inner-wrapper")}>
         <div className={cx("header__hamburger")} onClick={toggleMenu}>
-          <Hamburger
-            // dark={menuIsLight || headerDark}
-            dark={false}
-            active={hamburgerIsActive}
-          />
+          <Hamburger dark={false} active={hamburgerIsActive} />
         </div>
 
         <div className={cx("header__logo")}>
@@ -134,8 +124,8 @@ const Header: FC<HeaderProps> = ({
         {currentVariant !== "scrolled" && (
           <div className={cx("header__menu--primary")}>
             <MenuList
-              // frontPageID={frontPageID}
               frontPageID={1}
+              // frontPageID={frontPageID}
               data={menuDataPrimary}
               onClick={closeMenu}
             />
@@ -150,9 +140,8 @@ const Header: FC<HeaderProps> = ({
         >
           {currentVariant === "scrolled" && (
             <MenuList
-              // frontPageID={frontPageID}
               frontPageID={1}
-              // data={menuDataPrimary.map(({ icon, ...rest }) => rest)}
+              // frontPageID={frontPageID}
               data={menuDataPrimary}
               onClick={closeMenu}
             />
@@ -163,9 +152,9 @@ const Header: FC<HeaderProps> = ({
           {currentVariant !== "scrolled" && (
             <MenuList
               frontPageID={1}
+              // frontPageID={frontPageID}
               data={menuDataSecondary}
               onClick={closeMenu}
-              // frontPageID={frontPageID}
             />
           )}
 
@@ -192,11 +181,9 @@ const Header: FC<HeaderProps> = ({
               className={cx("header__sign-in-button")}
             >
               Sign in
-              {/* {buttonMapping["sign-in"].children} */}
             </Button>
           )}
         </div>
-        {/* </div> */}
 
         <div
           className={cx("header__sign-in-button-container", {
@@ -206,14 +193,11 @@ const Header: FC<HeaderProps> = ({
         >
           {currentVariant === "scrolled" && buttonMapping["sign-in"] && (
             <Button
-              // size="small"
               key={buttonMapping["sign-in"].id}
               icon="user"
               className={cx("header__sign-in-button")}
             >
-              {/* {buttonMapping["sign-in"].children} */}
               Sign in
-              {/* {currentVariant !== "scrolled" && buttonMapping["sign-in"].children} */}
             </Button>
           )}
         </div>
@@ -222,11 +206,7 @@ const Header: FC<HeaderProps> = ({
       <div className={cx("mobile")}>
         <div className={cx("mobile__header")}>
           <div className={cx("mobile__hamburger")} onClick={toggleMenu}>
-            <Hamburger
-              // dark={menuIsLight || headerDark}
-              dark={false}
-              active={hamburgerIsActive}
-            />
+            <Hamburger dark={false} active={hamburgerIsActive} />
           </div>
 
           <div className={cx("mobile__logo-container")}>
@@ -234,7 +214,7 @@ const Header: FC<HeaderProps> = ({
               <HeaderLogo
                 data={logos}
                 closeMenu={closeMenu}
-                variant={"default"}
+                variant="default"
               />
             </div>
           </div>
@@ -245,7 +225,6 @@ const Header: FC<HeaderProps> = ({
               icon="user"
               className={cx("header__sign-in-button")}
             >
-              {/* {buttonMapping["sign-in"].children} */}
               Sign in
             </Button>
           )}
@@ -253,15 +232,13 @@ const Header: FC<HeaderProps> = ({
 
         <div className={cx("mobile__menu")}>
           <MenuList
-            data={[...data.menuDataPrimary, ...data.menuDataSecondary]}
+            data={[...menuDataPrimary, ...menuDataSecondary]}
             onClick={closeMenu}
             // frontPageID={frontPageID}
             frontPageID={1}
           />
         </div>
       </div>
-
-      {/* <PopUpNotification props={props} /> */}
     </header>
   );
 };
