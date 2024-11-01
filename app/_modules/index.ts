@@ -6,6 +6,7 @@ import TravelGrid from "./TravelGrid";
 import TravelGuideDescription from "./TravelGuideDescription";
 import TravelGuideImages from "./TravelGuideImages";
 import TravelGuideMap from "./TravelGuideMap";
+import TripGrid from "./TripGrid";
 
 export {
   BlogArticleList,
@@ -16,4 +17,5 @@ export {
   TravelGuideDescription,
   TravelGuideImages,
   TravelGuideMap,
+  TripGrid,
 };
