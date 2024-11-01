@@ -9,7 +9,7 @@
 
   &__content {
     padding: 0 32px;
-    max-width: 1280px;
+    max-width: 1240px;
     margin: 0 auto;
 
     @media only screen and (max-width: 769px) {
@@ -32,14 +32,14 @@
 
 .blog-filters {
   background-color: rgba($primary-color, 0.15);
-  margin-bottom: 110px;
+  margin-bottom: 72px;
 
   @media only screen and (max-width: 600px) {
-    margin-bottom: 72px;
+    margin-bottom: 48px;
   }
 
   &__container {
-    max-width: 1280px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 24px;
   }
