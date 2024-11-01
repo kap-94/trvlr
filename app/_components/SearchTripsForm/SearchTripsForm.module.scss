@@ -5,15 +5,15 @@
   grid-template-columns: 2fr 1fr 1fr 1fr auto;
   grid-template-areas: "destination start-date end-date people button";
   width: 100%;
-  border-radius: 8px;
+  border-radius: $input-radius;
   position: relative;
   margin-bottom: 28px;
 
   &__destination {
     grid-area: destination;
     input {
-      border-top-left-radius: 12px;
-      border-bottom-left-radius: 12px;
+      border-top-left-radius: $input-radius;
+      border-bottom-left-radius: $input-radius;
     }
   }
 
@@ -34,7 +34,7 @@
     height: 100%;
     transform: translateX(-8px);
     padding-inline: 20px;
-    border-radius: 12px;
+    border-radius: $input-radius;
 
     i img {
       transform: scale(1.1);
@@ -133,21 +133,21 @@
 
     &__destination {
       input {
-        border-radius: 12px;
+        border-radius: $input-radius;
       }
     }
 
     &__start-date {
       input {
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
+        border-top-left-radius: $input-radius;
+        border-bottom-left-radius: $input-radius;
       }
     }
 
     &__people {
       input {
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border-top-right-radius: $input-radius;
+        border-bottom-right-radius: $input-radius;
       }
     }
 
@@ -182,7 +182,7 @@
     &__destination,
     &__people {
       input {
-        border-radius: 12px;
+        border-radius: $input-radius;
       }
     }
 
@@ -202,16 +202,16 @@
         height: 60%;
 
         input {
-          border-top-left-radius: 12px;
-          border-bottom-left-radius: 12px;
+          border-top-left-radius: $input-radius;
+          border-bottom-left-radius: $input-radius;
         }
       }
     }
 
     &__end-date {
       input {
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border-top-right-radius: $input-radius;
+        border-bottom-right-radius: $input-radius;
       }
     }
 
@@ -282,8 +282,8 @@
 
       &__destination {
         input {
-          border-top-left-radius: 12px;
-          border-bottom-left-radius: 12px;
+          border-top-left-radius: $input-radius;
+          border-bottom-left-radius: $input-radius;
         }
 
         &::after {
@@ -300,8 +300,8 @@
       &__destination {
         input {
           border-radius: 0;
-          border-top-left-radius: 12px;
-          border-bottom-left-radius: 12px;
+          border-top-left-radius: $input-radius;
+          border-bottom-left-radius: $input-radius;
         }
       }
 
