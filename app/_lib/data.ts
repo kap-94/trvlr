@@ -260,7 +260,7 @@ export const headerData: HeaderProps = {
         // title: "Blog & Beyond",
         title: "Explorer's Blog",
         target: "_self",
-        url: "/blog",
+        url: "/blogs",
         icon: "grid-view",
       },
 
