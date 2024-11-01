@@ -1,107 +1,74 @@
-"use client";
-
+// TripCard.tsx
 import { FC } from "react";
 import classNames from "classnames/bind";
 import Link from "next/link";
-import Icon, { IconName } from "../CustomIcon";
-import { Card, Typography } from "@/app/_components";
-import { CardData } from "../Card/interfaces";
+import Image from "next/image";
+import { Typography } from "@/app/_components";
+import { Star } from "lucide-react";
 import styles from "./TripCard.module.scss";
 
-export interface TripCardData extends CardData {
-  moreInfo: string;
-  countries: string[];
+export interface TripData {
+  id: string;
+  title: string;
+  description: string;
+  rating: number;
+  price: number;
+  imageUrl: string;
 }
 
 interface TripCardProps {
-  data: TripCardData;
+  data: TripData;
   className?: string;
 }
-
-const categoryIcons: { [key: string]: IconName } = {
-  adventure: "mountain",
-  cultural: "museum",
-  leisure: "beach",
-  business: "briefcase",
-  educational: "book",
-  wellness: "spa",
-  culinary: "restaurant",
-  nature: "tree",
-  waterSports: "surf",
-  amusementParks: "rollercoaster",
-  sailing: "boat",
-  shopping: "shopping-cart",
-  nightlife: "cocktail",
-};
 
 const cx = classNames.bind(styles);
 
 export const TripCard: FC<TripCardProps> = ({ data, className }) => {
-  const { travelCategory, title, subtitle, moreInfo, countries } = data;
-
-  const icon = categoryIcons[travelCategory];
+  const { id, title, description, rating, price, imageUrl } = data;
 
   return (
-    <Link href={`/trips/${data.id}`}>
-      <Card data={data} className={cx("card", className)}>
-        <Card.Header className={cx("card__header")}>
-          <Card.Image
-            title={title}
-            subtitle={countries.join(", ")}
+    <Link href={`/trips/${id}`}>
+      <article className={cx("trip-card", className)}>
+        <div className={cx("trip-card__image-container")}>
+          <Image
+            src={imageUrl}
+            alt={title}
             fill
-            className={cx("card__image")}
+            className={cx("trip-card__image")}
           />
-          <div className={cx("card__icon-container")}>
-            <Icon
-              icon={icon}
-              className={cx("card__icon")}
-              height={20}
-              width={20}
-              color="white"
-            />
-          </div>
+        </div>
 
-          <div className={cx("card__overlay")}>
+        <div className={cx("trip-card__content")}>
+          <Typography variant="h4" className={cx("trip-card__title")}>
+            {title}
+          </Typography>
+
+          <Typography variant="p2" className={cx("trip-card__description")}>
+            {description}
+          </Typography>
+
+          <div className={cx("trip-card__footer")}>
+            <div className={cx("trip-card__rating")}>
+              <Star className={cx("trip-card__rating-icon")} />
+              <Typography
+                variant="p2"
+                fontWeight={600}
+                className={cx("trip-card__rating-value")}
+              >
+                {rating.toFixed(1)}
+              </Typography>
+            </div>
+
             <Typography
-              variant="h4"
-              color="white"
-              className={cx("card__overlay-title")}
-            >
-              {title}
-            </Typography>
-
-            {/* <Typography
               variant="p1"
-              color="white"
-              className={cx("card__overlay-subtitle")}
+              fontWeight={700}
+              className={cx("trip-card__price")}
             >
-              {subtitle}
-            </Typography> */}
-
-            {/* Añadir un divisor */}
-            {/* <div className={cx("card__overlay-divider")} /> */}
-
-            <Typography
-              variant="p2"
-              color="white"
-              fontWeight={600}
-              className={cx("card__overlay-info")}
-            >
-              {moreInfo}
-            </Typography>
-            <div className={cx("card__overlay-divider")} />
-
-            <Typography
-              variant="p2"
-              fontWeight={600}
-              color="white"
-              className={cx("card__overlay-countries")}
-            >
-              {countries.join(", ")}
+              ${price.toLocaleString()}
             </Typography>
           </div>
-        </Card.Header>
-      </Card>
+        </div>
+      </article>
     </Link>
   );
 };
