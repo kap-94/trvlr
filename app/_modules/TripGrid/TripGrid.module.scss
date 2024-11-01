@@ -1,0 +1,66 @@
+// TripGrid.module.scss
+@import "../../_styles/variables.scss";
+
+.trip-grid {
+  min-height: 100vh;
+  width: 100%;
+  padding: 180px 24px 90px;
+
+  &__container {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+
+    // Desktop - 4 columns
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    // Tablets - 3 columns
+    @media (max-width: 1199px) and (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // Small tablets - 2 columns
+    @media (max-width: 991px) and (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Mobile - 1 column
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 24px;
+  }
+
+  &__item {
+    width: 100%;
+    height: 100%;
+
+    // Animación opcional al cargar los elementos
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+
+    @for $i from 1 through 16 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
