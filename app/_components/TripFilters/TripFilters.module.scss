@@ -149,12 +149,12 @@
     width: 100%;
     border: none;
     background: none;
-    color: $primary-color;
+    color: $black-color;
     cursor: pointer;
     transition: color 0.2s ease;
 
     &:hover {
-      color: $black-color;
+      color: $primary-color;
     }
 
     &-icon {
