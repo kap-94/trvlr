@@ -1,0 +1,23 @@
+.hero-text-content {
+  max-width: 1280px;
+  width: 100%;
+  margin-inline: auto;
+  text-align: left;
+  padding: 40px 0;
+
+  &__eyebrow {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    // margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    // Añade estilos para el botón, si es necesario
+  }
+}

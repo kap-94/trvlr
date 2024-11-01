@@ -12,6 +12,7 @@ import FeaturedBlogCard from "./FeaturedBlogCard";
 import Footer from "./Footer";
 import Hamburger from "./Hamburger/Hamburger";
 import Header from "./Header";
+import HeroTextContent from "./HeroTextContent";
 import IconButton from "./IconButton";
 import ImageGrid from "./ImageGrid";
 import LayoutVariantsGrid from "./LayoutVariantsGrid";
@@ -39,6 +40,7 @@ export {
   Footer,
   Hamburger,
   Header,
+  HeroTextContent,
   Icon,
   IconButton,
   ImageGrid,
