@@ -1,3 +1,4 @@
+"use client";
 // SearchCard.tsx
 import { FC } from "react";
 import classNames from "classnames/bind";
@@ -52,7 +53,8 @@ export const SearchCard: FC = () => {
         </Typography> */}
         <Button
           variant="link-light"
-          href=""
+          href="/"
+          target="_self"
           className={cx("search-card__button")}
         >
           Explore Guides
