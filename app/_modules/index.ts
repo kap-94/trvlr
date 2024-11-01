@@ -1,7 +1,7 @@
 import BlogArticleList from "./BlogArticleList";
 import BlogPreview from "./BlogPreview";
 import FeaturedTrips from "./FeaturedTrips";
-import HeroVideo from "./HeroVideo";
+import { Hero as HeroVideo } from "./HeroVideo";
 import TravelGrid from "./TravelGrid";
 import TravelGuideDescription from "./TravelGuideDescription";
 import TravelGuideImages from "./TravelGuideImages";
