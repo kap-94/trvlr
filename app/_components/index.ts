@@ -24,7 +24,10 @@ import SearchCard from "./SearchCard";
 import SearchTripsForm from "./SearchTripsForm";
 import SectionHeading from "./SectionHeading";
 import Spinner from "./Spinner";
+import FeaturedTripCard from "./FeaturedTripCard";
 import TripCard from "./TripCard";
+import TripFilters from "./TripFilters";
+import TripGrid from "../_modules/TripGrid";
 import Typography from "./Typography";
 import VideoPlayer from "./VideoPlayer";
 
@@ -55,7 +58,10 @@ export {
   SectionHeading,
   Spinner,
   Tags,
+  FeaturedTripCard,
   TripCard,
+  TripFilters,
+  TripGrid,
   Typography,
   VideoPlayer,
 };
