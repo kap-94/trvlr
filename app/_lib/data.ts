@@ -3,7 +3,7 @@
 import { FooterProps } from "../_components/Footer";
 import { HeaderProps } from "../_components/Header/interfaces";
 import { LayoutVariantsGridItem } from "../_components/LayoutVariantsGrid";
-import { TripCardData } from "../_components/TripCard";
+import { TripCardData } from "../_components/FeaturedTripCard";
 
 export interface BlogPost {
   id: number;
