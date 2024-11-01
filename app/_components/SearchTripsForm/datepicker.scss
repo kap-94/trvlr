@@ -2,7 +2,7 @@
 
 .react-datepicker {
   border: none;
-  border-radius: 14px;
+  border-radius: $card-radius;
   box-shadow: $shadow-blue;
   padding: 24px 42px 28px;
   display: flex;
