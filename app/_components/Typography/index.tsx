@@ -17,7 +17,7 @@ export const colorMapping: { [key in TypographyColor]: string } = {
   secondary: "222222",
   accent: "#747995",
   white: "#fdfdff",
-  black: "#3950EE",
+  black: "#2c3e50",
   success: "#d2d4e1",
   warning: "#65656A",
   error: "#FF0000",
