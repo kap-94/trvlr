@@ -4,9 +4,9 @@ import { FC, useCallback, useState } from "react";
 import classNames from "classnames/bind";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { Typography } from "@/app/_components";
-import { TripData } from "@/app/_components/TripCard";
 import styles from "./TripFilters.module.scss";
 import { raleway } from "@/app/_fonts";
+import { TripCardView } from "@/app/_types";
 
 const cx = classNames.bind(styles);
 
@@ -23,8 +23,8 @@ export interface FilterState {
 
 interface TripFiltersProps {
   className?: string;
-  trips: TripData[];
-  onFiltersChange: (filteredTrips: TripData[]) => void;
+  trips: TripCardView[];
+  onFiltersChange: (filteredTrips: TripCardView[]) => void;
 }
 
 export const TripFilters: FC<TripFiltersProps> = ({
@@ -32,37 +32,50 @@ export const TripFilters: FC<TripFiltersProps> = ({
   onFiltersChange,
   className,
 }) => {
+  // Get initial price range with safe fallback values
+  const getInitialPriceRange = () => {
+    const validPrices = trips
+      .filter((trip) => trip.pricing?.basePrice?.amount !== undefined)
+      .map((trip) => trip.pricing!.basePrice!.amount);
+
+    return {
+      min: validPrices.length > 0 ? Math.min(...validPrices) : 0,
+      max: validPrices.length > 0 ? Math.max(...validPrices) : 1000,
+    };
+  };
+
   const [isExpanded, setIsExpanded] = useState(false);
+  const initialPriceRange = getInitialPriceRange();
   const [filters, setFilters] = useState<FilterState>({
     search: "",
-    priceRange: {
-      min: Math.min(...trips.map((trip) => trip.price)),
-      max: Math.max(...trips.map((trip) => trip.price)),
-    },
+    priceRange: initialPriceRange,
     minRating: 0,
-  });
-
-  const [initialPriceRange] = useState({
-    min: Math.min(...trips.map((trip) => trip.price)),
-    max: Math.max(...trips.map((trip) => trip.price)),
   });
 
   const applyFilters = useCallback(
     (currentFilters: FilterState) => {
       const filtered = trips.filter((trip) => {
+        // Safe search match check
         const searchMatch =
-          trip.title
+          (trip.title || "")
             .toLowerCase()
             .includes(currentFilters.search.toLowerCase()) ||
-          trip.description
+          (trip.description || "")
             .toLowerCase()
             .includes(currentFilters.search.toLowerCase());
 
+        // Safe price match check
         const priceMatch =
-          trip.price >= currentFilters.priceRange.min &&
-          trip.price <= currentFilters.priceRange.max;
+          trip.pricing?.basePrice?.amount !== undefined
+            ? trip.pricing.basePrice.amount >= currentFilters.priceRange.min &&
+              trip.pricing.basePrice.amount <= currentFilters.priceRange.max
+            : false;
 
-        const ratingMatch = trip.rating >= currentFilters.minRating;
+        // Safe rating match check
+        const ratingMatch =
+          trip.rating?.average !== undefined
+            ? trip.rating.average >= currentFilters.minRating
+            : false;
 
         return searchMatch && priceMatch && ratingMatch;
       });
