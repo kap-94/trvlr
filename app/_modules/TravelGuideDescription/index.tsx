@@ -1,31 +1,32 @@
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 import classnames from "classnames/bind";
-import { Typography, ScrollImage } from "@/app/_components";
+import { TripDetailView } from "@/app/_types";
+import { Typography } from "@/app/_components";
 import styles from "./TravelGuideDescription.module.scss";
 
 const cx = classnames.bind(styles);
 
-interface TravelGuideData {
-  title: string;
-  subtitle: string;
-  description: string;
-  mainImageUrl: string;
-  bestTimeToVisit: string;
-  averageCost: string;
-  currency: string;
-  foodHighlights: string[];
-  culture: string;
-  transportation: string;
-  visaInfo: string;
-  safetyTips: string;
-  author: string;
-  authorLink: string;
-  largeInspirationalText: string; // Nueva sección inspiradora tipo reportaje
-}
+// interface TravelGuideData {
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   coverImage: string;
+//   bestTimeToVisit: string;
+//   averageCost: string;
+//   currency: string;
+//   foodHighlights: string[];
+//   culture: string;
+//   transportation: string;
+//   visaInfo: string;
+//   safetyTips: string;
+//   author: string;
+//   authorLink: string;
+//   largeInspirationalText: string; // Nueva sección inspiradora tipo reportaje
+// }
 
 interface TravelGuideDescriptionProps {
-  data: TravelGuideData;
+  data: TripDetailView;
 }
 
 // Componente InfoRow definido dentro del mismo archivo
@@ -50,17 +51,16 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
     title,
     subtitle,
     description,
-    mainImageUrl,
+    coverImage,
     bestTimeToVisit,
     averageCost,
     currency,
     foodHighlights,
     culture,
-    transportation,
     visaInfo,
     safetyTips,
-    author,
-    authorLink,
+    // author,
+    // authorLink,
     largeInspirationalText,
   } = data;
 
@@ -105,7 +105,10 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
             </Typography>
 
             <InfoRow label="Best time to visit:" value={bestTimeToVisit} />
-            <InfoRow label="Average cost:" value={averageCost} />
+            <InfoRow
+              label="Average cost:"
+              value={averageCost.toLocaleString()}
+            />
             <InfoRow label="Currency:" value={currency} />
 
             <Typography
@@ -118,7 +121,7 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
               {culture}
             </Typography>
 
-            <Typography
+            {/* <Typography
               variant="h3"
               className={cx("travel-guide__section-heading")}
             >
@@ -130,20 +133,20 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
                   <Typography variant="p1">{food}</Typography>
                 </li>
               ))}
-            </ul>
+            </ul> */}
 
-            <Typography
+            {/* <Typography
               variant="h3"
               className={cx("travel-guide__section-heading")}
             >
               Transportation & Accessibility
-            </Typography>
-            <Typography
+            </Typography> */}
+            {/* <Typography
               variant="p1"
               className={cx("travel-guide__transportation")}
             >
               {transportation}
-            </Typography>
+            </Typography> */}
 
             <Typography
               variant="h3"
@@ -169,7 +172,7 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
             </Typography>
           </div>
 
-          <div className={cx("travel-guide__author")}>
+          {/* <div className={cx("travel-guide__author")}>
             <Typography variant="p1">
               Written by{" "}
               <Link
@@ -179,11 +182,18 @@ const TravelGuideDescription: React.FC<TravelGuideDescriptionProps> = ({
                 {author}
               </Link>
             </Typography>
-          </div>
+          </div> */}
         </div>
 
-        <div className={cx("travel-guide__image")}>
-          <ScrollImage src={mainImageUrl} alt={`Main image for ${title}`} />
+        <div className={cx("travel-guide__image-container")}>
+          <Image
+            src={coverImage.src}
+            alt={`Main image for ${title}`}
+            className={cx("travel-guide__image")}
+            height={700}
+            width={364}
+          />
+          {/* <ScrollImage src={coverImage.src} alt={`Main image for ${title}`} /> */}
         </div>
       </div>
     </section>
