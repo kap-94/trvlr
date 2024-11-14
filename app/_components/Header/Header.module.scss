@@ -20,6 +20,18 @@
   backdrop-filter: blur(20px); /* Desenfoque más fuerte */
   -webkit-backdrop-filter: blur(20px);
 
+  &::before {
+    content: "";
+    width: 100%;
+    opacity: 0.3;
+    color: #f4f7f6;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid;
+  }
+
   @media only screen and (max-width: 1080px) {
     padding: 0 24px;
   }
@@ -31,19 +43,8 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
-    grid-template-areas: "logo logo menu-primary  menu-primary menu-primary  menu-secondary menu-secondary";
+    grid-template-areas: "logo logo menu-primary menu-primary menu-primary menu-secondary menu-secondary";
     align-items: center;
-
-    &::before {
-      content: "";
-      width: 100%;
-      opacity: 0.3;
-      color: #f4f7f6;
-      height: 1px;
-      position: absolute;
-      bottom: 0;
-      border-bottom: 1px solid;
-    }
 
     @media only screen and (max-width: 1080px) {
       grid-template-columns: repeat(3, 1fr);
@@ -127,6 +128,12 @@
     }
   }
 
+  &__menu {
+    &--hidden {
+      display: none !important;
+    }
+  }
+
   &__item {
     &--visible {
       opacity: 1;
@@ -157,6 +164,7 @@
     top: 0;
     left: 0;
     right: 0;
+    opacity: 0;
     bottom: 100%;
     background: $white-color;
     transition: all 0.24s;
@@ -164,6 +172,15 @@
 
   &.light {
     .header {
+      background-image: none;
+      backdrop-filter: unset !important;
+      -webkit-backdrop-filter: unset !important;
+
+      &::before {
+        height: 0 !important;
+        opacity: 0 !important;
+      }
+
       &__inner-wrapper {
         display: flex;
         justify-content: unset;
@@ -231,8 +248,8 @@
           }
         }
 
-        i img {
-          filter: brightness(0);
+        svg {
+          stroke: $black-color;
         }
       }
 
@@ -276,6 +293,7 @@
 
     .light-overlay {
       bottom: 0;
+      opacity: 1;
       box-shadow: $shadow-blue;
     }
   }
