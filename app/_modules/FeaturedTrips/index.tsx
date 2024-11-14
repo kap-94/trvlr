@@ -3,21 +3,22 @@ import classnames from "classnames/bind";
 import {
   ResponsiveGrid,
   FeaturedTripCard,
-  SectionHeading,
+  SectionHeader,
 } from "@/app/_components";
 import styles from "./FeaturedTrips.module.scss";
-import { TripCardData } from "@/app/_components/FeaturedTripCard";
+import { TripCardView } from "@/app/_types";
+// import { TripCardData } from "@/app/_components/FeaturedTripCard";
 
 const cx = classnames.bind(styles);
 
 interface Props {
-  trips: TripCardData[];
+  trips: TripCardView[];
 }
 
 const FeaturedTrips: FC<Props> = ({ trips }) => {
   return (
     <section className={cx("featured-trips")} id={"featured-trips"}>
-      <SectionHeading
+      <SectionHeader
         title={"The Hotest Trips"}
         subtitle="Discover the most amazing adventures, collect experiences for life."
         className={cx("featured-trips__heading")}
