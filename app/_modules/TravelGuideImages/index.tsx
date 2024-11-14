@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TravelGuideImages.module.scss";
 import classNames from "classnames/bind";
-import { ImageGrid, SectionHeading } from "@/app/_components";
+import { ImageGrid, SectionHeader } from "@/app/_components";
 
 const cx = classNames.bind(styles);
 
@@ -22,9 +22,9 @@ const TravelGuideImages: React.FC<TravelGuideImagesProps> = ({
 }) => {
   return (
     <section className={cx("travel-guide-images")}>
-      <div className={cx("travel-guide-images__header")}>
-        <SectionHeading title={title} subtitle={subtitle} />
-      </div>
+      {/* <div className={cx("travel-guide-images__header")}>
+        <SectionHeader title={title} subtitle={subtitle} />
+      </div> */}
       <div className={cx("travel-guide-images__grid")}>
         <ImageGrid images={images} />
       </div>
