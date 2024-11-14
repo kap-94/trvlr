@@ -30,9 +30,12 @@ export const CardImage: React.FC<CardImageProps> = ({
   };
 
   if (image) {
+    // imageToShow = image;
     imageToShow = image;
-  } else if (data.image) {
-    imageToShow = data.image;
+  } else if (data.coverImage) {
+    // } else if (data.image) {
+    imageToShow = data.coverImage;
+    // imageToShow = data.image;
   } else {
     imageToShow = defaultImage;
   }

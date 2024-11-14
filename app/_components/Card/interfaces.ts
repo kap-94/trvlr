@@ -6,6 +6,7 @@ import { CardFooterProps } from "./components/CardFooter";
 import { CardHeaderProps } from "./components/CardHeader";
 import { CardImageProps } from "./components/CardImage";
 import { CardTitleProps } from "./components/CardTitle";
+import { TripCardView } from "@/app/_types";
 
 export type travelCategory =
   | "adventure"
@@ -22,14 +23,7 @@ export type travelCategory =
   | "shopping"
   | "nightlife";
 
-export interface CardData {
-  id: string;
-  travelCategory: travelCategory;
-  title: string;
-  subtitle?: string;
-  description?: string;
-  image?: { src: string; alt: string };
-}
+export interface CardData extends TripCardView {}
 
 export interface CardDataContextProps {
   data: CardData;
