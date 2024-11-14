@@ -2,7 +2,7 @@
 
 .leaflet-map {
   &__container {
-    height: 600px;
+    height: 640px;
     width: 100%;
     overflow: hidden;
 
@@ -12,19 +12,20 @@
   }
 
   .popup-content {
-    padding: 8px 0 16px;
+    padding: 16px 0;
 
     &__title {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      word-wrap: break-word;
     }
 
     &__image-container {
+      background-color: rgba($black-color, 0.3);
+      aspect-ratio: 16 / 9;
+      // border-radius: 4px;
       position: relative;
-      border-radius: 6px;
       margin-bottom: 16px;
       overflow: hidden;
-      // height: 160px;
-      aspect-ratio: 16 / 9;
       width: 100%;
     }
 
@@ -33,7 +34,8 @@
     }
 
     &__excerpt {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      padding-inline: 16px;
     }
 
     &__button {
