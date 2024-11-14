@@ -1,5 +1,4 @@
 @import "../../_styles/variables.scss";
-@import "../../_styles/mixins.scss";
 
 .blog-preview {
   display: flex;
@@ -7,11 +6,77 @@
   justify-content: center;
   align-items: center;
   gap: 56px;
-  padding: 90px 36px;
+  padding: 100px 36px;
+  position: relative;
+  isolation: isolate;
 
-  //   @media only screen and (max-width: $xlarge) {
-  //     padding: 100px 24px 80px;
+  // Contenedor del background con efectos
+
+  &__background {
+    background: linear-gradient(180deg, #ffffff, #fafafa);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 1px,
+        rgba($primary-color-dark, 0.1) 1px,
+        rgba($primary-color-dark, 0.1) 2px
+      );
+    }
+  }
+
+  // &__background {
+  //   background: linear-gradient(180deg, #ffffff, #fafafa);
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   overflow: hidden;
+
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     top: -50%;
+  //     right: -50%;
+  //     bottom: -50%;
+  //     left: -50%;
+  //     background: repeating-linear-gradient(
+  //         0deg,
+  //         transparent,
+  //         transparent 50px,
+  //         rgba(0, 0, 0, 0.2) 50px,
+  //         rgba(0, 0, 0, 0.2) 51px
+  //       ),
+  //       repeating-linear-gradient(
+  //         90deg,
+  //         transparent,
+  //         transparent 50px,
+  //         rgba(0, 0, 0, 0.2) 50px,
+  //         rgba(0, 0, 0, 0.2) 51px
+  //       ),
+  //       repeating-linear-gradient(
+  //         45deg,
+  //         transparent,
+  //         transparent 70px,
+  //         rgba(0, 0, 0, 0.1) 70px,
+  //         rgba(0, 0, 0, 0.1) 71px
+  //       );
+  //     transform: perspective(1000px) rotateX(60deg) scale(2);
   //   }
+  // }
 
   @media only screen and (max-width: $medium) {
     padding: 48px 24px;
@@ -22,6 +87,8 @@
   &__content {
     max-width: 1200px;
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__content {
@@ -81,5 +148,14 @@
     @media only screen and (max-width: $medium) {
       grid-template-columns: repeat(1, 1fr);
     }
+  }
+}
+
+@keyframes sphereFloat {
+  0% {
+    transform: translateZ(0) scale(1);
+  }
+  100% {
+    transform: translateZ(0) scale(1.1);
   }
 }
