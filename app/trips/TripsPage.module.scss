@@ -1,0 +1,52 @@
+.trips-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 116px;
+
+  &__header {
+    padding: 64px 24px 24px;
+  }
+}
+
+.search-results {
+  margin-bottom: 24px &__count {
+    color: var(--text-secondary);
+  }
+}
+
+.no-results {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 216px);
+  text-align: center;
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    max-width: 420px;
+    margin-bottom: 36px;
+  }
+
+  &__button {
+    p {
+      font-weight: 700 !important;
+    }
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.pagination-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
