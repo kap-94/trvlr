@@ -1,31 +1,174 @@
 @import "../../_styles/variables.scss";
 @import "../../_styles/mixins.scss";
 
-.travel-categories {
+.travel-grid {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 64px;
-  padding: 90px 36px;
-  // background-color: $black-color;
+  padding: 120px 36px;
+  isolation: isolate;
+  background-color: $primary-color-dark;
+  background-color: #000000;
+  overflow: hidden;
+
+  // Efecto de luz principal
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(
+      circle at 20% 20%,
+      rgba(#1c344a, 0.5) 0%,
+      rgba(114, 109, 255, 0.2) 20%,
+      transparent 45%
+    );
+    // background: radial-gradient(
+    //   circle at 20% 20%,
+    //   rgba(114, 109, 255, 0.8) 0%,
+    //   rgba(114, 109, 255, 0.2) 20%,
+    //   transparent 45%
+    // );
+    // radial-gradient(
+    //   circle at 85% 75%,
+    //   rgba(255, 123, 123, 0.6) 0%,
+    //   rgba(255, 123, 123, 0.2) 25%,
+    //   transparent 50%
+    // );
+    filter: blur(60px);
+    z-index: 0;
+    transform: translateZ(0);
+    animation: slowPulse 15s ease-in-out infinite alternate;
+  }
+
+  // Opción 2: Nebulosa Digital
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(
+      from 0deg at 50% -10%,
+      rgba(255, 255, 255, 0) 0deg,
+      rgba($primary-color-dark, 0.1) 10deg,
+      rgba(255, 255, 255, 0.03) 20deg,
+      rgba($primary-color-dark, 0.5) 30deg
+    );
+    mask-image: radial-gradient(
+      ellipse at center,
+      black 0%,
+      rgba(0, 0, 0, 0.5) 60%,
+      transparent 100%
+    );
+    transform: scale(2);
+    opacity: 0.8;
+    z-index: 1;
+    animation: nebulaSpin 30s linear infinite;
+  }
+
+  // Líneas de flujo
+  .flow-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0.4;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      right: -100%;
+      bottom: -100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent 0%,
+        transparent 48%,
+        rgba(255, 255, 255, 0.3) 49%,
+        rgba(255, 255, 255, 0.3) 51%,
+        transparent 52%,
+        transparent 100%
+      );
+      background-size: 100px 100px;
+      animation: flowAnimation 20s linear infinite;
+      transform: perspective(1000px) rotateX(60deg) translateY(-20%);
+    }
+  }
+
+  // Efecto de borde luminoso
+  .glow-border {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+      );
+    }
+  }
 
   @media only screen and (max-width: $medium) {
     padding: 80px 24px;
     align-items: flex-start;
     gap: 40px;
+
+    &::after {
+      background-size: 20px 20px;
+      transform: perspective(1000px) rotateX(60deg) translateY(-30%) scale(2);
+    }
   }
 
   &__heading {
     font-size: 40px;
+    position: relative;
+    z-index: 4;
+    color: white;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 
-    @media only screen and (max-width: $medium) {
-      align-items: flex-start;
+    h2,
+    p {
+      color: $white-color;
     }
   }
 
   &__content {
     display: flex;
     justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 4;
+  }
+}
+
+@keyframes slowPulse {
+  0% {
+    transform: translateZ(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateZ(0) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes flowAnimation {
+  0% {
+    transform: perspective(1000px) rotateX(60deg) translateY(-20%)
+      translateX(0%);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(60deg) translateY(-20%)
+      translateX(100%);
   }
 }
