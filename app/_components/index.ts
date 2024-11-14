@@ -1,10 +1,12 @@
 import { Rating } from "./Rating";
 import { Tags } from "./Tags";
+import AnimatedText from "./AnimatedText";
+import Autocomplete from "./Autocomplete";
 import BlogListCard from "./BlogListCard";
 import BlogCard from "./BlogCard";
 import Button from "./Button";
 import Card from "./Card";
-import DestinationDropdown from "./DestinationDropdown";
+import RegionSelect from "./RegionSelect";
 import Dropdown from "./Dropdown";
 import Icon from "./CustomIcon";
 import FeaturedCard from "./FeaturedCard";
@@ -21,8 +23,8 @@ import MenuList from "./MenuList";
 import ResponsiveGrid from "./ResponsiveGrid";
 import ScrollImage from "./ScrollImage";
 import SearchCard from "./SearchCard";
-import SearchTripsForm from "./SearchTripsForm";
-import SectionHeading from "./SectionHeading";
+import SearchForm from "./SearchForm";
+import SectionHeader from "./SectionHeader";
 import Spinner from "./Spinner";
 import FeaturedTripCard from "./FeaturedTripCard";
 import TripCard from "./TripCard";
@@ -32,11 +34,13 @@ import Typography from "./Typography";
 import VideoPlayer from "./VideoPlayer";
 
 export {
+  AnimatedText,
+  Autocomplete,
   BlogListCard,
   BlogCard,
   Button,
   Card,
-  DestinationDropdown,
+  RegionSelect,
   Dropdown,
   FeaturedCard,
   FeaturedBlogCard,
@@ -54,8 +58,8 @@ export {
   ResponsiveGrid,
   ScrollImage,
   SearchCard,
-  SearchTripsForm,
-  SectionHeading,
+  SearchForm,
+  SectionHeader,
   Spinner,
   Tags,
   FeaturedTripCard,

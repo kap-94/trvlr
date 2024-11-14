@@ -1,4 +1,4 @@
-import BlogArticleList from "./BlogArticleList";
+import BlogList from "./BlogList";
 import BlogPreview from "./BlogPreview";
 import FeaturedTrips from "./FeaturedTrips";
 import { Hero as HeroVideo } from "./HeroVideo";
@@ -9,7 +9,7 @@ import TravelGuideMap from "./TravelGuideMap";
 import TripGrid from "./TripGrid";
 
 export {
-  BlogArticleList,
+  BlogList,
   BlogPreview,
   FeaturedTrips,
   HeroVideo,
