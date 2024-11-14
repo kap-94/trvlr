@@ -1,48 +1,28 @@
-// blog-post/BlogPost.tsx
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./BlogPost.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import Typography from "../Typography";
+import { Typography } from "@/app/_components";
+import { BlogDetailView } from "@/app/_types";
+import GalleryLightbox from "./GalleryLightbox";
 
 const cx = classNames.bind(styles);
 
-interface ContentSection {
-  title: string;
-  body: string;
-  image?: string;
-  link?: { href: string; label: string };
-  order: number;
-}
-
-interface BlogPostProps {
-  title: string;
-  author: string;
-  date: string;
-  coverImage: string;
-  introduction: string;
-  content: ContentSection[];
-  highlights: string[];
-  gallery: string[];
-  tags: string[];
-  relatedPosts: Array<{ id: string; title: string; href: string }>;
-  readTime: number;
-}
-
-const BlogPost: React.FC<BlogPostProps> = ({
-  title,
-  author,
-  date,
-  coverImage,
-  introduction,
-  content,
-  highlights,
-  gallery,
-  tags,
-  relatedPosts,
-  readTime,
-}) => {
+const BlogPost: React.FC<BlogDetailView> = (data) => {
+  const {
+    author,
+    content,
+    coverImage,
+    gallery,
+    highlights,
+    introduction,
+    publishDate,
+    readTime,
+    relatedPosts,
+    tags,
+    title,
+  } = data;
   const sortedContent = [...content].sort((a, b) => a.order - b.order);
 
   return (
@@ -56,19 +36,20 @@ const BlogPost: React.FC<BlogPostProps> = ({
       <header className={cx("blog-post__header")}>
         <div className={cx("blog-post__image-container")}>
           <Image
-            src={coverImage}
-            alt={title}
+            src={coverImage.src}
+            alt={coverImage.alt}
             className={cx("blog-post__image")}
             fill
             priority
+            sizes="(max-width: 900px) calc(100vw - 32px), (max-width: 800px) 800px, 704px"
           />
         </div>
 
         <div className={cx("blog-post__meta")}>
           <Typography variant="h1">{title}</Typography>
           <Typography variant="h5">
-            By {author} | {new Date(date).toLocaleDateString()} | {readTime} min
-            read
+            By {author.name} | {new Date(publishDate).toLocaleDateString()} |{" "}
+            {readTime} min read
           </Typography>
         </div>
       </header>
@@ -84,7 +65,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
       <section className={cx("blog-post__highlights")}>
         <Typography variant="h3">Key Takeaways</Typography>
         <ul>
-          {highlights.map((point, index) => (
+          {highlights?.map((point, index) => (
             <li key={index}>
               <Typography variant="p1" fontWeight={400}>
                 {point}
@@ -103,10 +84,11 @@ const BlogPost: React.FC<BlogPostProps> = ({
             {section.image && (
               <div className={cx("blog-post__content-image-container")}>
                 <Image
-                  src={section.image}
-                  alt={section.title}
+                  src={section.image.src}
+                  alt={section.image.alt}
                   fill
                   className={cx("blog-post__content-image")}
+                  sizes="(max-width: 900px) calc(100vw - 32px), (max-width: 800px) 800px, 704px"
                 />
               </div>
             )}
@@ -134,22 +116,12 @@ const BlogPost: React.FC<BlogPostProps> = ({
       </section>
 
       {/* Gallery */}
-      <section className={cx("blog-post__gallery")}>
-        <Typography variant="h2">Gallery</Typography>
-        <div className={cx("blog-post__gallery-grid")}>
-          {gallery.map((image, index) => (
-            <div className={cx("blog-post__gallery-image-container")}>
-              <Image
-                key={index}
-                src={image}
-                alt={`Gallery image ${index + 1}`}
-                fill
-                className={cx("blog-post__gallery-image")}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      {gallery && gallery.length > 0 && (
+        <GalleryLightbox
+          images={gallery}
+          className={cx("blog-post__gallery")}
+        />
+      )}
 
       {/* Tags */}
       <div className={cx("blog-post__tags")}>
@@ -164,9 +136,9 @@ const BlogPost: React.FC<BlogPostProps> = ({
       <div className={cx("blog-post__related-posts")}>
         <Typography variant="h2">Related Posts</Typography>
         <ul>
-          {relatedPosts.map((post) => (
+          {relatedPosts?.map((post) => (
             <li key={post.id}>
-              <Link href={post.href}>
+              <Link href={post.slug}>
                 <Typography variant="p1" fontWeight={400}>
                   {post.title}
                 </Typography>
@@ -175,15 +147,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
           ))}
         </ul>
       </div>
-
-      {/* Comment Section */}
-      {/* <section className={cx("blog-post__comments")}>
-        <Typography variant="h3">Leave a Comment</Typography>
-        <form>
-          <textarea placeholder="Write your comment..." rows={5} />
-          <button type="submit">Post Comment</button>
-        </form>
-      </section> */}
     </article>
   );
 };

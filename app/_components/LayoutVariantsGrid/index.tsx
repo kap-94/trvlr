@@ -1,35 +1,64 @@
 // components/LayoutVariantsGrid.tsx
-
 import React from "react";
 import Image from "next/image";
 import classnames from "classnames/bind";
 import { Typography } from "@/app/_components";
-import VideoPlayer, { VideoPlayerProps } from "../VideoPlayer";
+import {
+  LayoutVariantsGridItem,
+  LayoutVariantsGridProps,
+  LayoutVariant,
+} from "@/app/_types";
+import VideoPlayer from "../VideoPlayer";
 import styles from "./LayoutVariantsGrid.module.scss";
 
 const cx = classnames.bind(styles);
 
-type VideoItem = VideoPlayerProps & { type: "video" };
+// Función helper para calcular sizes basado en el índice y la variante
+const getImageSizes = (index: number, variant: LayoutVariant): string => {
+  const defaultSize = "(max-width: 768px) 300px";
 
-export type LayoutVariantsGridItem =
-  | VideoItem
-  | {
-      type: "image";
-      src: string;
-      alt?: string;
-    }
-  | {
-      type: "text";
-      title: string;
-      paragraph: string;
-    };
+  const variantSizes: Record<LayoutVariant, Record<number, string>> = {
+    variant1: {
+      0: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 240px, 310px",
+      1: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 380px, 380px",
+      2: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 510px, 530px",
+      3: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 480px, 520px",
+      4: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 380px, 420px",
+      5: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 300px, 336px",
+    },
+    variant2: {
+      0: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 400px, 380px",
+      1: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 280px, 300px",
+      2: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 500px, 540px",
+      3: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 500px, 540px",
+      4: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 280px, 320px",
+      5: "(max-width: 768px) 300px, (max-width: 1080px) 400px, (max-width: 1280px) 500px, 540px",
+    },
+    variant3: {
+      0: "(max-width: 768px) 300px, (max-width: 1080px) 100%, (max-width: 1280px) 480px, 500px",
+      1: "(max-width: 768px) 200px, (max-width: 1080px) 100%, (max-width: 1280px) 180px, 200px",
+      2: "(max-width: 768px) 250px, (max-width: 1080px) 100%, (max-width: 1280px) 460px, 480px",
+      3: "(max-width: 768px) 350px, (max-width: 1080px) 100%, (max-width: 1280px) 520px, 540px",
+      4: "(max-width: 768px) 280px, (max-width: 1080px) 100%, (max-width: 1280px) 320px, 350px",
+      5: "(max-width: 768px) 300px, (max-width: 1080px) 100%, (max-width: 1280px) 320px, 420px",
+    },
+  };
 
-export type LayoutVariantsGridProps = {
-  items: LayoutVariantsGridItem[];
-  variant: "variant1" | "variant2" | "variant3";
+  return variantSizes[variant]?.[index] ?? defaultSize;
 };
 
-// Función auxiliar para renderizar imágenes
+// Función para determinar la prioridad de carga
+const shouldPrioritize = (index: number, variant: LayoutVariant): boolean => {
+  const priorityIndexes: Record<LayoutVariant, number[]> = {
+    variant1: [0, 1, 2],
+    variant2: [0, 1, 2],
+    variant3: [0, 3],
+  };
+
+  return priorityIndexes[variant]?.includes(index) ?? false;
+};
+
+// Función auxiliar para renderizar videos
 const renderVideo = (
   item: Extract<LayoutVariantsGridItem, { type: "video" }>,
   index: number
@@ -41,8 +70,8 @@ const renderVideo = (
     <div className={baseClass} key={index}>
       <VideoPlayer
         src={src}
-        title={title}
-        placeholderImage={placeholderImage}
+        title={title ?? ""}
+        placeholderImage={placeholderImage ?? ""}
         options={options}
       />
     </div>
@@ -52,7 +81,8 @@ const renderVideo = (
 // Función auxiliar para renderizar imágenes
 const renderImage = (
   item: Extract<LayoutVariantsGridItem, { type: "image" }>,
-  index: number
+  index: number,
+  variant: LayoutVariant
 ): JSX.Element => {
   const { src, alt = "Image" } = item;
   const baseClass = cx("grid__item", `grid__item--${index}`);
@@ -64,7 +94,14 @@ const renderImage = (
         alt={alt}
         className={cx("grid__image")}
         fill
-        style={{ objectFit: "cover" }}
+        sizes={getImageSizes(index, variant)}
+        priority={shouldPrioritize(index, variant)}
+        quality={90}
+        style={{
+          objectFit: "cover",
+          objectPosition:
+            variant === "variant1" && index === 5 ? "left" : "center",
+        }}
       />
     </div>
   );
@@ -81,19 +118,21 @@ const renderText = (
   return (
     <div className={baseClass} key={index}>
       <div className={cx("grid__text-box")}>
-        <Typography variant="h3">{title}</Typography>
-        <Typography variant="p1">{paragraph}</Typography>
+        <Typography variant="h3" color="white">
+          {title}
+        </Typography>
+        <Typography variant="p1" color="white">
+          {paragraph}
+        </Typography>
       </div>
     </div>
   );
 };
 
-// Componente principal Server Component
 const LayoutVariantsGrid: React.FC<LayoutVariantsGridProps> = ({
   items,
   variant,
 }) => {
-  // Asignar la clase correspondiente al grid según la variante
   const gridClass = cx("grid", {
     "grid--variant1": variant === "variant1",
     "grid--variant2": variant === "variant2",
@@ -119,7 +158,7 @@ const LayoutVariantsGrid: React.FC<LayoutVariantsGridProps> = ({
               );
               return null;
             }
-            return renderImage(item, index);
+            return renderImage(item, index, variant);
           case "text":
             if (!item.title || !item.paragraph) {
               console.warn(

@@ -17,9 +17,7 @@ interface ImageGridProps {
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
-  // Limitar el número de imágenes a 8
   const limitedImages = images.slice(0, 8);
-
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,11 +30,25 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
     setOpen(false);
   };
 
+  // Función para determinar el tamaño apropiado según el índice
+  const getImageSizes = (index: number) => {
+    const largeIndices = [0, 3];
+    const isLarge = largeIndices.includes(index);
+
+    // Esta string le dice al navegador qué tamaño de imagen cargar según el viewport
+    return isLarge
+      ? "(max-width: 480px) 100vw, " + // móvil: ancho completo
+          "(max-width: 768px) 50vw, " + // tablet: mitad del viewport
+          "calc(66.66vw - 32px)" // desktop: 2/3 del viewport menos el gap
+      : "(max-width: 480px) 100vw, " + // móvil: ancho completo
+          "(max-width: 768px) 33.33vw, " + // tablet: un tercio del viewport
+          "calc(33.33vw - 32px)"; // desktop: un tercio del viewport menos el gap
+  };
+
   return (
     <div className={cx("image-grid")}>
       <div className={cx("image-grid__container")}>
         {limitedImages.map((image, index) => {
-          // Asignar clases "large" a los ítems 1 y 4 (índices 0 y 3)
           const largeIndices = [0, 3];
           const itemClass = largeIndices.includes(index)
             ? "image-grid__item--large"
@@ -55,8 +67,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
                       src={image.src}
                       alt={image.alt}
                       fill
+                      sizes={getImageSizes(index)}
                       className={cx("image-grid__image")}
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      priority={index < 2} // Cargar con prioridad las primeras dos imágenes
                     />
                   </a>
                 ) : (
@@ -64,8 +77,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
                     src={image.src}
                     alt={image.alt}
                     fill
+                    sizes={getImageSizes(index)}
                     className={cx("image-grid__image")}
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={index < 2} // Cargar con prioridad las primeras dos imágenes
                   />
                 )}
               </div>

@@ -21,6 +21,8 @@
 
   &__image-container {
     border-radius: $card-radius;
+    // box-shadow: 0 2px 4px rgba($primary-color, 0.2);
+    // box-shadow: $shadow-blue;
     position: relative;
     height: 240px;
     width: 100%;

@@ -3,37 +3,44 @@ import { FC } from "react";
 import classNames from "classnames/bind";
 import Link from "next/link";
 import Image from "next/image";
-import { Typography } from "@/app/_components";
 import { Star } from "lucide-react";
+import { TripCardView } from "@/app/_types";
+import { Typography } from "@/app/_components";
 import styles from "./TripCard.module.scss";
 
-export interface TripData {
-  id: string;
-  title: string;
-  description: string;
-  rating: number;
-  price: number;
-  imageUrl: string;
-}
-
+// TripCard.tsx
 interface TripCardProps {
-  data: TripData;
+  data: TripCardView;
   className?: string;
+  isPriority?: boolean; // Añadimos esta prop
 }
 
 const cx = classNames.bind(styles);
 
-export const TripCard: FC<TripCardProps> = ({ data, className }) => {
-  const { id, title, description, rating, price, imageUrl } = data;
+const imageSizes = [
+  "(min-width: 1200px) 340px", // 1440px / 4 - gaps ~= 340px
+  "(min-width: 992px) 33vw", // 3 columnas
+  "(min-width: 768px) 50vw", // 2 columnas
+  "calc(100vw - 48px)", // 1 columna - padding horizontal
+].join(", ");
+
+export const TripCard: FC<TripCardProps> = ({
+  data,
+  className,
+  isPriority = false,
+}) => {
+  const { title, subtitle, rating, pricing, coverImage, slug } = data;
 
   return (
-    <Link href={`/trips/${id}`}>
+    <Link href={`/trips/${slug}`}>
       <article className={cx("trip-card", className)}>
         <div className={cx("trip-card__image-container")}>
           <Image
-            src={imageUrl}
-            alt={title}
+            src={coverImage.src}
+            alt={coverImage.alt}
             fill
+            sizes={imageSizes}
+            priority={isPriority}
             className={cx("trip-card__image")}
           />
         </div>
@@ -44,7 +51,7 @@ export const TripCard: FC<TripCardProps> = ({ data, className }) => {
           </Typography>
 
           <Typography variant="p2" className={cx("trip-card__description")}>
-            {description}
+            {subtitle}
           </Typography>
 
           <div className={cx("trip-card__footer")}>
@@ -55,7 +62,7 @@ export const TripCard: FC<TripCardProps> = ({ data, className }) => {
                 fontWeight={600}
                 className={cx("trip-card__rating-value")}
               >
-                {rating.toFixed(1)}
+                {rating.average.toFixed(1)}
               </Typography>
             </div>
 
@@ -64,7 +71,7 @@ export const TripCard: FC<TripCardProps> = ({ data, className }) => {
               fontWeight={700}
               className={cx("trip-card__price")}
             >
-              ${price.toLocaleString()}
+              ${pricing?.basePrice.amount.toLocaleString()}
             </Typography>
           </div>
         </div>

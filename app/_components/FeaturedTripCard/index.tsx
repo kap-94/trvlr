@@ -5,50 +5,63 @@ import classNames from "classnames/bind";
 import Link from "next/link";
 import Icon, { IconName } from "../CustomIcon";
 import { Card, Typography } from "@/app/_components";
-import { CardData } from "../Card/interfaces";
 import styles from "./FeaturedTripCard.module.scss";
-
-export interface TripCardData extends CardData {
-  moreInfo: string;
-  countries: string[];
-}
-
-interface TripCardProps {
-  data: TripCardData;
-  className?: string;
-}
-
-const categoryIcons: { [key: string]: IconName } = {
-  adventure: "mountain",
-  cultural: "museum",
-  leisure: "beach",
-  business: "briefcase",
-  educational: "book",
-  wellness: "spa",
-  culinary: "restaurant",
-  nature: "tree",
-  waterSports: "surf",
-  amusementParks: "rollercoaster",
-  sailing: "boat",
-  shopping: "shopping-cart",
-  nightlife: "cocktail",
-};
+import { TravelCategory, TripCardView } from "@/app/_types";
 
 const cx = classNames.bind(styles);
 
-export const FeaturedTripCard: FC<TripCardProps> = ({ data, className }) => {
-  const { travelCategory, title, subtitle, moreInfo, countries } = data;
+interface TripCardProps {
+  data: TripCardView;
+  className?: string;
+}
 
-  const icon = categoryIcons[travelCategory];
+const categoryIcons: { [key in TravelCategory]: IconName } = {
+  [TravelCategory.ADVENTURE]: "mountain",
+  [TravelCategory.CULTURAL]: "museum",
+  [TravelCategory.LUXURY]: "briefcase",
+  [TravelCategory.ECOTOURISM]: "tree",
+  [TravelCategory.WILDLIFE]: "tree",
+  [TravelCategory.BEACH]: "beach",
+  [TravelCategory.MOUNTAIN]: "mountain",
+  [TravelCategory.URBAN]: "museum",
+  [TravelCategory.RURAL]: "tree",
+  [TravelCategory.FOOD_WINE]: "restaurant",
+  [TravelCategory.WELLNESS]: "spa",
+  [TravelCategory.EDUCATIONAL]: "book",
+  [TravelCategory.PHOTOGRAPHY]: "museum",
+  [TravelCategory.VOLUNTEER]: "briefcase",
+  [TravelCategory.RELIGIOUS]: "museum",
+  [TravelCategory.SPORTS]: "mountain",
+  [TravelCategory.FESTIVAL]: "cocktail",
+  [TravelCategory.CRUISE]: "boat",
+};
+
+export const FeaturedTripCard: FC<TripCardProps> = ({ data, className }) => {
+  const { category, title, subtitle, description, countries } = data;
+  const icon = categoryIcons[category[0]];
+
+  // Extraer los nombres de los países y unirlos
+  const countryNames = countries.map((country) => country.name).join(", ");
+
+  // sizes basado en el ResponsiveGrid y los breakpoints:
+  // - Por defecto (>1200px): el grid es de 3 columnas o el número especificado
+  // - Entre 768px y 1200px: el grid es de 2 columnas
+  // - <768px: el grid es de 1 columna
+  const imageSizes = `
+    (max-width: 768px) 100vw,
+    (max-width: 1200px) 50vw,
+    33vw
+  `;
 
   return (
-    <Link href={`/trips/${data.id}`}>
+    <Link href={`/trips/${data.slug}`}>
       <Card data={data} className={cx("card", className)}>
         <Card.Header className={cx("card__header")}>
           <Card.Image
             title={title}
-            subtitle={countries.join(", ")}
+            subtitle={countryNames}
             fill
+            sizes={imageSizes}
             className={cx("card__image")}
           />
           <div className={cx("card__icon-container")}>
@@ -70,24 +83,13 @@ export const FeaturedTripCard: FC<TripCardProps> = ({ data, className }) => {
               {title}
             </Typography>
 
-            {/* <Typography
-              variant="p1"
-              color="white"
-              className={cx("card__overlay-subtitle")}
-            >
-              {subtitle}
-            </Typography> */}
-
-            {/* Añadir un divisor */}
-            {/* <div className={cx("card__overlay-divider")} /> */}
-
             <Typography
               variant="p2"
               color="white"
               fontWeight={600}
               className={cx("card__overlay-info")}
             >
-              {moreInfo}
+              {description}
             </Typography>
             <div className={cx("card__overlay-divider")} />
 
@@ -97,7 +99,7 @@ export const FeaturedTripCard: FC<TripCardProps> = ({ data, className }) => {
               color="white"
               className={cx("card__overlay-countries")}
             >
-              {countries.join(", ")}
+              {countryNames}
             </Typography>
           </div>
         </Card.Header>

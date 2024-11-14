@@ -3,13 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import classnames from "classnames/bind";
+import { Image as ImageType } from "@/app/_types";
 import { Typography } from "@/app/_components";
 import styles from "./FeaturedBlogCard.module.scss";
 
 const cx = classnames.bind(styles);
 
 interface FeaturedBlogCardProps {
-  imageSrc: string;
+  image: ImageType;
   eyebrow?: string;
   title: string;
   subtitle: string;
@@ -17,21 +18,33 @@ interface FeaturedBlogCardProps {
 }
 
 const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
-  imageSrc,
+  image,
   eyebrow,
   title,
   subtitle,
   link,
 }) => {
+  // Calculamos sizes basado en los breakpoints y el layout:
+  // - En móvil (< $medium): imagen ocupa el ancho completo
+  // - En tablet (< $xlarge): imagen ocupa el ancho completo
+  // - En desktop: imagen ocupa el 60% del contenedor de 1200px
+  const imageSizes = `
+    (max-width: 768px) 100vw,
+    (max-width: 1200px) 100vw,
+    720px
+  `;
+
   return (
-    <Link href={link} className={cx("card")}>
+    <Link href={`/blog/posts/${link}`} className={cx("card")}>
       <div className={cx("card__image-wrapper")}>
         <Image
-          src={imageSrc}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={imageSizes}
           className={cx("card__image")}
+          // Podemos agregar priority a la primera imagen destacada
+          // priority={true}
         />
       </div>
       <div className={cx("card__overlay")}>
