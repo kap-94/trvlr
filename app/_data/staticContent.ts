@@ -11,7 +11,7 @@ export const headerData: HeaderProps = {
         target: "_self",
         url: "/trips",
         iconSource: "lucide",
-        lucideIcon: "map", // El icono de mapa tiene más sentido para guías de viaje
+        // lucideIcon: "map", // El icono de mapa tiene más sentido para guías de viaje
       },
       {
         menu_item_id: 737,
@@ -20,7 +20,7 @@ export const headerData: HeaderProps = {
         target: "_self",
         url: "/blog",
         iconSource: "lucide",
-        lucideIcon: "compass", // Compass representa mejor la exploración y el descubrimiento
+        // lucideIcon: "compass", // Compass representa mejor la exploración y el descubrimiento
       },
 
       // Submenu items for "Destinations"
@@ -53,32 +53,32 @@ export const headerData: HeaderProps = {
     ],
     logos: {
       defaultLogo: {
-        url: "/logo.svg",
+        url: "/travlr-logo.png",
         href: "/",
         alt: "logo",
-        width: 64,
-        height: 64,
+        width: 154,
+        height: 53,
       },
       light: {
-        url: "/logo.svg",
+        url: "/travlr-logo.png",
         href: "/",
         alt: "logo",
-        width: 64,
-        height: 64,
+        width: 154,
+        height: 53,
       },
       lightMobile: {
-        url: "/logo.svg",
+        url: "/travlr-logo.png",
         href: "/",
         alt: "logo",
-        height: 46,
-        width: 46,
+        width: 154,
+        height: 53,
       },
       dark: {
-        url: "/logo.svg",
+        url: "/travlr-logo.png",
         href: "//",
         alt: "logo",
-        height: 46,
-        width: 46,
+        width: 154,
+        height: 53,
       },
     },
   },
@@ -117,10 +117,10 @@ export const footerData: FooterProps = {
     copyright_name: "Kotahi Travel",
     copyright_french: "Kotahi Voyage", // Alternative language option
     logo: {
-      url: "/logo.svg",
+      url: "/travlr-logo.png",
       alt: "Kotahi Travel Logo",
-      width: 160,
-      height: 80,
+      width: 154,
+      height: 53,
     },
     social_links: [
       {
@@ -178,14 +178,10 @@ export const layoutItems: LayoutVariantsGridItem[] = [
 
 export const heroSlides = [
   {
-    video_url:
-      // "https://cdn.pixabay.com/video/2020/01/25/31569-387675206.mp4",
-      // "https://cdn.pixabay.com/video/2017/08/02/11087-228113789_large.mp4",
-      // "https://cdn.pixabay.com/video/2023/08/12/175657-854054123_large.mp4",
-      "https://cdn.pixabay.com/video/2024/10/18/236893_large.mp4",
+    video_url: "https://cdn.pixabay.com/video/2024/10/18/236893_large.mp4",
     image: {
-      url: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=3344&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Travel Image",
+      url: "/artic-ship.png",
+      alt: "Artic Ship",
     },
   },
 ];
