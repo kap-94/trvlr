@@ -105,6 +105,7 @@ export default async function TripsPage({ searchParams }: PageProps) {
             <Spinner />
           </div>
         }
+        key={search}
       >
         <TripGridContent searchQuery={search} page={page} />
       </Suspense>
