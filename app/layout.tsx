@@ -8,7 +8,7 @@ import styles from "./layout.module.scss";
 const cx = classnames.bind(styles);
 
 export const metadata: Metadata = {
-  title: "Travlr",
+  title: "Trvlr",
   description: "A web page for those who want to explore the world",
 };
 
