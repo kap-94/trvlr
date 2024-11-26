@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import classNames from "classnames/bind";
-import { Hash, Grid, Layers, Newspaper, BookOpen } from "lucide-react";
 import styles from "./BlogList.module.scss";
 import { BlogCardView, Category } from "@/app/_types";
 import { BlogCard, Typography } from "@/app/_components";
@@ -27,18 +26,6 @@ interface BlogFiltersProps {
   selected: FilterOption;
 }
 
-interface FilterOption {
-  id?: number;
-  label: string;
-  value: string;
-}
-
-interface BlogFiltersProps {
-  categoryOptions: FilterOption[];
-  onFilterChange: (category: FilterOption) => void;
-  selected: FilterOption;
-}
-
 const BlogFilters: React.FC<BlogFiltersProps> = ({
   categoryOptions,
   onFilterChange,
@@ -47,7 +34,7 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
   return (
     <div className={cx("blog-filters")}>
       <div className={cx("blog-filters__container")}>
-        <nav className={cx("category-filters")} role="tablist">
+        <div className={cx("category-filters")}>
           {categoryOptions.map((category) => (
             <button
               key={category.value}
@@ -62,12 +49,15 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
               >
                 {category.label}
               </Typography>
-              {selected.value === category.value && (
-                <span className={cx("category-filters__indicator")} />
-              )}
+              <div
+                className={cx("category-filters__indicator", {
+                  "category-filters__indicator--active":
+                    selected.value === category.value,
+                })}
+              />
             </button>
           ))}
-        </nav>
+        </div>
       </div>
     </div>
   );
