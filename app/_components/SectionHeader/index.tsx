@@ -12,8 +12,32 @@ interface SectionHeaderProps {
   eyebrow?: string;
   className?: string;
   align?: "left" | "center" | "right";
-  titleVariant?: TypographyVariant; // Nueva propiedad para la variante del título
-  subtitleVariant?: TypographyVariant; // Nueva propiedad para la variante del subtítulo
+  titleVariant?: TypographyVariant;
+  subtitleVariant?: TypographyVariant;
+  style?:
+    | "minimal"
+    | "accent"
+    | "stack"
+    | "gradient"
+    | "dots"
+    | "split"
+    | "bracket"
+    | "layered"
+    | "minimal-plus"
+    | "corner"
+    | "corner-stack"
+    | "geometric-frames"
+    | "layered-corners"
+    | "modern-grid"
+    | "floating-elements"
+    | "dynamic-lines"
+    | "stacked-layers"
+    | "geometric-minimal";
+  accentColor?: string; // Para personalizar el color de acento
+  gradientColors?: {
+    start: string;
+    end: string;
+  };
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -22,12 +46,27 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   eyebrow,
   className = "",
   align = "center",
-  titleVariant = "h2", // Valor por defecto "h2" para el título
-  subtitleVariant = "p1", // Valor por defecto "p1" para el subtítulo
+  titleVariant = "h2",
+  subtitleVariant = "p1",
+  style,
+  accentColor,
+  gradientColors,
 }) => {
+  const headerStyle = {
+    "--accent-color": accentColor,
+    "--gradient-start": gradientColors?.start,
+    "--gradient-end": gradientColors?.end,
+  } as React.CSSProperties;
+
   return (
     <div
-      className={cx("section-header", className, `section-header--${align}`)}
+      className={cx(
+        "section-header",
+        `section-header--${align}`,
+        style && `section-header--style-${style}`,
+        className
+      )}
+      style={headerStyle}
     >
       {eyebrow && (
         <Typography

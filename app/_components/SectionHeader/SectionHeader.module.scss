@@ -1,23 +1,25 @@
-// components/SectionHeader.module.scss
 .section-header {
   display: flex;
   flex-direction: column;
+  position: relative;
+  // margin-bottom: 48px;
 
+  // Estilos base compartidos
   &__eyebrow {
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
   &__title {
-    margin-bottom: 12px;
+    // margin-bottom: 12px;
   }
 
   &__subtitle {
     font-size: 18px;
-    padding-left: 8px;
+    max-width: 650px;
   }
 
-  // Alineación condicional
+  // Alineación
   &--left {
     align-items: flex-start;
     text-align: left;
@@ -26,10 +28,1053 @@
   &--center {
     align-items: center;
     text-align: center;
+
+    .section-header__subtitle {
+      margin: 0 auto;
+    }
   }
 
   &--right {
     align-items: flex-end;
     text-align: right;
+  }
+
+  // Variante 1: Minimal Line
+  &--style-minimal {
+    .section-header__eyebrow {
+      position: relative;
+      padding-left: 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 30px;
+        height: 1px;
+        background-color: currentColor;
+        transform: translateY(-50%);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding-bottom: 24px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background-color: currentColor;
+        opacity: 0.3;
+      }
+    }
+
+    &.section-header--center {
+      .section-header__eyebrow::before {
+        left: -40px;
+      }
+
+      .section-header__title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  // Variante 2: Accent Border
+  &--style-accent {
+    padding-left: 24px;
+    border-left: 3px solid var(--accent-color, #000);
+
+    .section-header__eyebrow {
+      color: var(--accent-color, #000);
+    }
+
+    &.section-header--center {
+      padding-left: 0;
+      border-left: none;
+
+      .section-header__title {
+        position: relative;
+        padding-top: 24px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40px;
+          height: 3px;
+          background-color: var(--accent-color, #000);
+        }
+      }
+    }
+  }
+
+  // Variante 3: Modern Stack
+  &--style-stack {
+    .section-header__eyebrow {
+      background-color: var(--accent-color, #000);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    .section-header__title {
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background-color: var(--accent-color, #000);
+        opacity: 0.1;
+        z-index: -1;
+      }
+    }
+  }
+
+  // Variante 4: Gradient Backdrop
+  &--style-gradient {
+    .section-header__title {
+      position: relative;
+      display: inline-block;
+      padding: 0 8px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 16px);
+        background: linear-gradient(
+          135deg,
+          var(--gradient-start, rgba(0, 0, 0, 0.05)) 0%,
+          var(--gradient-end, rgba(0, 0, 0, 0.01)) 100%
+        );
+        border-radius: 8px;
+        z-index: -1;
+      }
+    }
+
+    .section-header__subtitle {
+      opacity: 0.8;
+    }
+  }
+
+  // Variante 5: Dynamic Dots
+  &--style-dots {
+    .section-header__eyebrow {
+      position: relative;
+      padding-right: 24px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--accent-color, #000);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--accent-color, #000);
+        opacity: 0.5;
+      }
+
+      &::before {
+        top: -12px;
+        left: -12px;
+      }
+
+      &::after {
+        bottom: -12px;
+        right: -12px;
+      }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+  }
+
+  // Nueva variante: Split Line
+  &--style-split {
+    .section-header__eyebrow {
+      position: relative;
+      padding-left: 16px;
+      margin-left: 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -16px;
+        top: 50%;
+        width: 24px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: -16px;
+        top: 50%;
+        width: 2px;
+        height: 24px;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--accent-color, #000) 50%,
+          transparent 50%
+        );
+        background-size: 8px 100%;
+      }
+    }
+
+    &.section-header--center {
+      .section-header__title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  // Nueva variante: Bracket Frame
+  &--style-bracket {
+    padding: 0 24px;
+
+    .section-header__eyebrow {
+      background: var(--accent-color, #000);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 4px;
+      transform: translateY(8px);
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 32px 0 24px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 40px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.2;
+      }
+
+      &::before {
+        left: -24px;
+        top: 0;
+      }
+
+      &::after {
+        right: -24px;
+        bottom: 0;
+      }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      padding-top: 8px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.2;
+      }
+    }
+  }
+
+  // Nueva variante: Layered Stack
+  &--style-layered {
+    .section-header__eyebrow {
+      background: var(--accent-color, #000);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 0 0 8px 8px;
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header__title {
+      position: relative;
+      z-index: 1;
+      padding: 16px 24px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: -8px;
+        bottom: -8px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.1;
+        border-radius: 8px;
+        z-index: -1;
+      }
+    }
+
+    .section-header__subtitle {
+      margin-top: 24px;
+      padding: 0 16px;
+    }
+  }
+
+  // Nueva variante: Minimal Plus
+  &--style-minimal-plus {
+    .section-header__eyebrow {
+      position: relative;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      display: inline-block;
+      padding: 0 0 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+  }
+
+  // Nueva variante: Corner Accent
+  &--style-corner {
+    .section-header__eyebrow {
+      position: relative;
+      margin-bottom: 16px;
+      padding-left: 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: var(--accent-color, #000);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 24px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--accent-color, #000);
+        opacity: 0.15;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+      }
+
+      &::after {
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 40px;
+      }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      padding-top: 16px;
+      margin-top: 8px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.15;
+      }
+    }
+  }
+
+  &--style-corner-stack {
+    position: relative;
+    padding: 24px 0;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color, #000);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 4px;
+      transform: translateY(-8px);
+      margin-left: 32px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -32px;
+        top: 50%;
+        width: 24px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        right: 12px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-color, #000);
+        transform: rotate(45deg);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      // padding: 24px 32px;
+      z-index: 1;
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   background-color: var(--accent-color, #000);
+      //   opacity: 0.04;
+      //   z-index: -1;
+      // }
+
+      // // Esquinas decorativas
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 40px;
+      //   height: 40px;
+      //   border: 2px solid var(--accent-color, #000);
+      //   border-right: none;
+      //   border-bottom: none;
+      //   top: 0;
+      //   left: 0;
+      //   opacity: 0.2;
+      // }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      // margin-top: 16px;
+      padding: 0 32px;
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   right: 0;
+      //   top: -8px;
+      //   width: 40px;
+      //   height: 40px;
+      //   border: 2px solid var(--accent-color, #000);
+      //   border-left: none;
+      //   border-top: none;
+      //   opacity: 0.1;
+      // }
+    }
+
+    // Variante centrada
+    &.section-header--center {
+      .section-header__eyebrow {
+        margin-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .section-header__title {
+        &::after {
+          left: 32px;
+        }
+      }
+
+      .section-header__subtitle {
+        &::before {
+          right: 32px;
+        }
+      }
+    }
+
+    // Decoración adicional
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-color, #000);
+      opacity: 0.2;
+      border-radius: 50%;
+    }
+
+    &::before {
+      top: 40px;
+      right: 0;
+    }
+
+    &::after {
+      bottom: 40px;
+      left: 0;
+    }
+  }
+
+  // 1. Geometric Frames
+  &--style-geometric-frames {
+    position: relative;
+    padding: 24px 0;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color, #000);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 0;
+      margin-bottom: 24px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 2px solid var(--accent-color, #000);
+      }
+
+      &::before {
+        top: -6px;
+        left: -6px;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      &::after {
+        bottom: -6px;
+        right: -6px;
+        border-left: none;
+        border-top: none;
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 32px;
+      margin: 16px 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--accent-color, #000);
+        opacity: 0.03;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -16px;
+        width: 32px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.3;
+      }
+    }
+
+    .section-header__subtitle {
+      padding-left: 32px;
+      border-left: 3px solid var(--accent-color, #000);
+    }
+  }
+
+  // 2. Layered Corners
+  &--style-layered-corners {
+    position: relative;
+    padding: 32px 24px;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color, #000);
+      color: white;
+      padding: 8px 20px;
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+      margin-bottom: 24px;
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 24px;
+        bottom: 0;
+        background-color: var(--accent-color, #000);
+        opacity: 0.04;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--accent-color, #000);
+        border-radius: 0 0 20px 0;
+        top: -10px;
+        right: 0;
+        opacity: 0.15;
+      }
+    }
+
+    .section-header__subtitle {
+      margin-top: 24px;
+      padding-left: 24px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 16px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+  }
+
+  // 3. Modern Grid
+  &--style-modern-grid {
+    position: relative;
+    padding: 40px 24px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(
+            to right,
+            var(--accent-color, #000) 1px,
+            transparent 1px
+          )
+          0 0 / 20px 20px,
+        linear-gradient(
+            to bottom,
+            var(--accent-color, #000) 1px,
+            transparent 1px
+          )
+          0 0 / 20px 20px;
+      opacity: 0.1;
+    }
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+
+      &::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 32px;
+      margin: 0 24px;
+      background-color: white;
+      box-shadow: 16px 16px 0 -8px rgba(var(--accent-rgb, 0, 0, 0), 0.06);
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: -8px;
+        bottom: -8px;
+        width: 16px;
+        height: 16px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.2;
+      }
+    }
+  }
+
+  // 4. Floating Elements
+  &--style-floating-elements {
+    position: relative;
+    padding: 32px 24px;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      background-color: white;
+      padding: 8px 20px;
+      margin-bottom: 24px;
+      box-shadow: 4px 4px 0 var(--accent-color, #000);
+      border: 1px solid var(--accent-color, #000);
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 32px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 2px solid var(--accent-color, #000);
+        opacity: 0.1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.05;
+        top: -20px;
+        right: -20px;
+        transform: rotate(45deg);
+      }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      margin-top: 32px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -16px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  // 5. Dynamic Lines
+  &--style-dynamic-lines {
+    position: relative;
+    padding: 40px 24px;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      padding: 8px 0;
+      margin-bottom: 32px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--accent-color, #000),
+          var(--accent-color, #000) 4px,
+          transparent 4px,
+          transparent 8px
+        );
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 24px 32px;
+      border-left: 3px solid var(--accent-color, #000);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--accent-color, #000);
+        opacity: 0.03;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -16px;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        border: 2px solid var(--accent-color, #000);
+        border-radius: 50%;
+        opacity: 0.2;
+      }
+    }
+
+    .section-header__subtitle {
+      margin-top: 24px;
+      padding-right: 40px;
+    }
+  }
+
+  // 6. Stacked Layers
+  &--style-stacked-layers {
+    position: relative;
+    padding: 32px 24px;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      background-color: var(--accent-color, #000);
+      color: white;
+      padding: 6px 16px;
+      transform: translateY(-8px);
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 32px;
+      background-color: white;
+      border: 2px solid var(--accent-color, #000);
+      border-radius: 4px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: -8px;
+        bottom: -8px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.1;
+        z-index: -1;
+        border-radius: 4px;
+      }
+    }
+
+    .section-header__subtitle {
+      margin-top: 32px;
+      padding: 0 16px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        width: 16px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+      }
+    }
+  }
+
+  // 7. Geometric Minimal
+  &--style-geometric-minimal {
+    position: relative;
+    padding: 40px 24px;
+
+    .section-header__eyebrow {
+      position: relative;
+      display: inline-block;
+      padding-left: 40px;
+      margin-bottom: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 24px;
+        height: 2px;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-color, #000);
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+
+    .section-header__title {
+      position: relative;
+      padding: 24px 0;
+      margin-bottom: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -24px;
+        width: 2px;
+        height: 100%;
+        background-color: var(--accent-color, #000);
+        opacity: 0.2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent-color, #000);
+        opacity: 0.1;
+      }
+    }
+
+    .section-header__subtitle {
+      position: relative;
+      padding-right: 40px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 1px;
+        background-color: var(--accent-color, #000);
+      }
+    }
   }
 }
