@@ -1,3 +1,5 @@
+@import "../../_styles/variables.scss";
+
 .search-card {
   align-items: center;
   cursor: auto;
@@ -20,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     width: 100%;
     max-width: 700px;
   }
@@ -32,7 +34,8 @@
   }
 
   &__subtitle {
-    margin-bottom: 128px;
+    margin-bottom: 136px;
+    font-size: 18px;
 
     @media only screen and (max-width: 768px) {
       margin-bottom: 108px;
@@ -42,6 +45,7 @@
   &__description {
     margin-bottom: 24px;
     max-width: 600px;
+    // font-size: 18px;
   }
 
   &__form {
@@ -58,6 +62,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 28px;
+    color: $white-color;
 
     @media only screen and (max-width: 900px) {
       > p {

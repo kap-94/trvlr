@@ -24,13 +24,14 @@ export const SearchCard: FC = () => {
         </Typography>
       </div>
       <Typography
-        variant="h4"
-        fontWeight={600}
+        variant="h2"
+        fontWeight={700}
         align="center"
         color="white"
+        fontFamily="raleway"
         className={cx("search-card__subtitle")}
       >
-        Find travel guides for every type of traveler.
+        Travel guides for every type of traveler.
       </Typography>
       <Typography
         variant="p1"
@@ -39,7 +40,7 @@ export const SearchCard: FC = () => {
         color="white"
         className={cx("search-card__description")}
       >
-        Where would you like to go today?
+        Where would you like to go?
       </Typography>
 
       <div className={cx("search-card__form")}>
@@ -48,12 +49,13 @@ export const SearchCard: FC = () => {
 
       <div className={cx("search-card__cta")}>
         <Button
-          variant="link-light"
+          variant="link"
+          className={cx("link-clean")}
           href="/trips"
           target="_self"
-          className={cx("search-card__button")}
+          icon={{ source: "lucide", name: "arrow-right" }}
         >
-          Explore Guides
+          Explore now
         </Button>
       </div>
     </div>
