@@ -107,10 +107,6 @@
     @media only screen and (max-width: 1080px) {
       display: none;
     }
-
-    // & > ul li:first-of-type img {
-    //   transform: scale(1.35) !important;
-    // }
   }
 
   &__menu--secondary {
@@ -156,7 +152,12 @@
     grid-area: button;
     justify-self: end;
     transition: none !important;
-    gap: 0;
+
+    @media only screen and (max-width: 768px) {
+      p {
+        display: none;
+      }
+    }
   }
 
   .light-overlay {
@@ -324,7 +325,6 @@
 
   &__logo {
     filter: brightness(0);
-    transform: translateX(50%);
   }
 
   &__menu {
@@ -332,8 +332,6 @@
     display: flex;
     margin: 0;
     padding: 36px 24px;
-    // flex: 1;
-    // overflow: scroll;
 
     ul {
       flex-direction: column;
