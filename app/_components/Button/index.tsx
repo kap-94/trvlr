@@ -1,44 +1,39 @@
-// Button.tsx
 import React, { ReactNode } from "react";
 import classNames from "classnames/bind";
 import Icon, { IconName } from "@/app/_components/CustomIcon";
 import { Typography, Spinner } from "@/app/_components";
 import styles from "./Button.module.scss";
-import { LucideIcon, ArrowRight, Search, User } from "lucide-react"; // Importar LucideIcon y los iconos que necesites
+import { LucideIcon, ArrowRight, Search, User } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
-// Definir interfaz para la configuración del icono
 interface IconConfig {
   source: "custom" | "lucide";
   name: IconName | string;
 }
 
-// Base props para el botón
 export interface ButtonBaseProps {
   children: ReactNode;
   className?: string;
   elevation?: 0 | 1 | 2 | 3 | 4 | 5;
   fullWidth?: boolean;
-  icon?: IconConfig | IconName; // Soporta tanto la nueva estructura como la anterior para retrocompatibilidad
+  icon?: IconConfig | IconName;
   onClick?: () => void;
   pill?: boolean;
   size?: "small" | "medium" | "large";
   style?: React.CSSProperties;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "accent" | "link-light" | "link-dark";
+  variant?: "primary" | "secondary" | "accent" | "link";
   isLoading?: boolean;
 }
 
-// Props cuando el variant es "link-light" o "link-dark"
 interface LinkVariantProps extends ButtonBaseProps {
-  variant: "link-light" | "link-dark";
+  variant: "link";
   href: string;
   target: "_blank" | "_self";
   isDisabled?: never;
 }
 
-// Props para todos los otros variants
 interface NonLinkVariantProps extends ButtonBaseProps {
   variant?: "primary" | "secondary" | "accent";
   href?: undefined;
@@ -48,13 +43,11 @@ interface NonLinkVariantProps extends ButtonBaseProps {
 
 export type ButtonProps = LinkVariantProps | NonLinkVariantProps;
 
-// Mapeo de iconos de Lucide
 const LUCIDE_ICONS: { [key: string]: LucideIcon } = {
   search: Search,
   user: User,
 };
 
-// Función helper para renderizar el icono
 const renderIcon = (
   iconProp: IconConfig | IconName | undefined,
   className: string,
@@ -62,7 +55,6 @@ const renderIcon = (
 ) => {
   if (!iconProp) return null;
 
-  // Si es solo un string, asumimos que es un icono personalizado (retrocompatibilidad)
   if (typeof iconProp === "string") {
     return (
       <Icon
@@ -74,7 +66,6 @@ const renderIcon = (
     );
   }
 
-  // Si es un objeto IconConfig
   if (iconProp.source === "lucide") {
     const LucideIconComponent = LUCIDE_ICONS[iconProp.name];
     return LucideIconComponent ? (
@@ -86,7 +77,6 @@ const renderIcon = (
     ) : null;
   }
 
-  // Para iconos personalizados
   return (
     <Icon
       icon={iconProp.name as IconName}
@@ -137,8 +127,7 @@ export const Button: React.FC<ButtonProps> = React.memo(
         ? { height: 20, width: 20 }
         : { height: 16, width: 16 };
 
-    // Para los variants de link
-    if ((variant === "link-light" || variant === "link-dark") && href) {
+    if (variant === "link" && href) {
       return (
         <a
           href={href}
@@ -164,7 +153,6 @@ export const Button: React.FC<ButtonProps> = React.memo(
       );
     }
 
-    // Botón regular
     return (
       <button
         type={type}
