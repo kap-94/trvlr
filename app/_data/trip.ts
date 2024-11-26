@@ -46,7 +46,7 @@ export const tripsMockup: Trip[] = [
       },
       country: getCountryBySlug("thailand"),
       image: {
-        src: "https://plus.unsplash.com/premium_photo-1693149386423-2e4e264712e5?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        src: "/images/thailand-trip/thailand-temple.jpg",
         alt: "Aerial view of Bangkok's skyline at night with illuminated skyscrapers and the Chao Phraya River",
       },
       link: {
@@ -285,11 +285,11 @@ export const tripsMockup: Trip[] = [
       },
       gallery: [
         {
-          src: "https://plus.unsplash.com/premium_photo-1681582960523-2b5ba7ed2c20?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw3S0FaNGpDZUlmMHx8ZW58MHx8fHx8",
-          alt: "Serene coastal landscape with crystalline waves gently lapping against a pristine shoreline at sunset",
+          src: "/images/thailand-trip/palms.jpg",
+          alt: "Palms in the beach",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1681582960531-7b5de57fb276?q=80&w=3326&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/thailand-trip/palms-2.jpg",
           alt: "Majestic palm trees swaying in the ocean breeze against a backdrop of pristine white sand beach",
         },
         {
@@ -677,8 +677,8 @@ export const tripsMockup: Trip[] = [
           alt: "Scenic mountain trail winding through vibrant autumn forest with golden foliage",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661963831427-50e24fadf5fb?q=80&w=2376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Pristine alpine lake reflecting snow-covered peaks and evergreen forest",
+          src: "/images/swiss-alps-trip/man-in-the-snow.jpg",
+          alt: "Man in the snow",
         },
         {
           src: "https://images.unsplash.com/photo-1719891790897-17e034c4c236?q=80&w=3386&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -689,7 +689,7 @@ export const tripsMockup: Trip[] = [
           alt: "Adventure campsite with tent overlooking vast mountain range at sunrise",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1664298150089-c28f06834283?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/swiss-alps-trip/walking-in-the-snow.jpg",
           alt: "Ethereal mountain peaks shrouded in morning mist against purple sky",
         },
         {
@@ -879,7 +879,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("indonesia"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1674539250113-156c53fef54b?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/bali-trip/women-in-the-hill.jpg",
           alt: "Crystal clear waters and white sand beach with luxury resort facilities",
         },
         link: {
@@ -1029,7 +1029,7 @@ export const tripsMockup: Trip[] = [
       },
       gallery: [
         {
-          src: "https://plus.unsplash.com/premium_photo-1674539250113-156c53fef54b?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/bali-trip/women-in-the-hill.jpg",
           alt: "Majestic waterfall cascading down steep rocky cliffs in tropical forest setting",
         },
         {
@@ -1214,8 +1214,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("japan"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1722795256346-446f8f846b9e?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Shinjuku's neon-lit streets and skyscrapers illuminated at night",
+          src: "/images/tokio-trip/tokio-tower.jpg",
+          alt: "Tokio Tower",
         },
         link: {
           url: "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
@@ -1395,8 +1395,8 @@ export const tripsMockup: Trip[] = [
           alt: "Busy alleyway in Tokyo with traditional lanterns and modern neon signs at night",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1722795256346-446f8f846b9e?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Modern Tokyo skyline view at twilight with Tokyo Tower illuminated in orange",
+          src: "/images/tokio-trip/tokio-tower.jpg",
+          alt: "Modern Tokyo Tower",
         },
         {
           src: "https://images.unsplash.com/photo-1573455494060-c5595004fb6c?q=80&w=3480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -1525,8 +1525,8 @@ export const tripsMockup: Trip[] = [
       },
       country: getCountryBySlug("tanzania"),
       image: {
-        src: "https://plus.unsplash.com/premium_photo-1664304476568-0266b152bf9c?q=80&w=3487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Great Migration spectacle with thousands of zebras and wildebeest crossing Serengeti plains",
+        src: "/images/tanzania-trip/elefants.jpg",
+        alt: "Elefants",
       },
       link: {
         url: "https://www.tanzaniaparks.go.tz/national_parks/serengeti-national-park",
@@ -1584,7 +1584,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("tanzania"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1664304370557-233bccc0ac85?q=80&w=3480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tanzania-trip/kilimanjaro.jpg",
           alt: "Majestic snow-capped peak of Mount Kilimanjaro rising above the African savanna",
         },
         link: {
@@ -1746,24 +1746,24 @@ export const tripsMockup: Trip[] = [
           alt: "Majestic giraffe family grazing on acacia trees in African savanna during sunset",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661843615544-b2c973491c8b?q=80&w=2802&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tanzania-trip/buffalos.jpg",
           alt: "Traditional Maasai warriors in vibrant red clothing performing ceremonial jump dance",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661963076203-0fda7f6ccf68?q=80&w=3396&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Safari vehicle watching pride of lions resting under acacia tree in early morning light",
+          src: "/images/tanzania-trip/cheeta.jpg",
+          alt: "Cheeta sleeping",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1664304476568-0266b152bf9c?q=80&w=3487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Zebra herd migrating across vast Serengeti plains during annual wildebeest migration",
+          src: "/images/tanzania-trip/elefants.jpg",
+          alt: "Elefants",
         },
         {
           src: "https://images.unsplash.com/photo-1717402779245-7f6ad2290ec7?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           alt: "Stunning African sunset over Ngorongoro Crater with silhouetted acacia trees",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661952476300-1f32e068126f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Luxury safari camp overlooking vast African plains with wildlife in distance",
+          src: "/images/tanzania-trip/elefants-river.jpg",
+          alt: "Elefants in the river",
         },
       ],
       videos: [
@@ -1871,8 +1871,8 @@ export const tripsMockup: Trip[] = [
       },
       country: getCountryBySlug("greece"),
       image: {
-        src: "https://plus.unsplash.com/premium_photo-1661915579393-fe1ea2b5b107?q=80&w=3300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Iconic blue domed church in Oia, Santorini, with panoramic caldera views at sunset",
+        src: "/images/greek-islands-trip/mills.jpg",
+        alt: "Iconic mills",
       },
       link: {
         url: "https://www.santorini.gr/",
@@ -1911,8 +1911,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("greece"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1661948738129-f87e7ba1f0d0?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Ancient ruins of Delos archaeological site with marble columns and historical remains",
+          src: "/images/greek-islands-trip/temple.jpg",
+          alt: "Ancient ruins of archaeological site with marble columns and historical remains",
         },
         link: {
           url: "https://www.visitgreece.gr/islands/cyclades/delos/",
@@ -1930,8 +1930,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("greece"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1688410049290-d7394cc7d5df?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Iconic Navagio Beach with shipwreck surrounded by towering limestone cliffs",
+          src: "/images/greek-islands-trip/santorini-day.jpg",
+          alt: "Santorini by day",
         },
         link: {
           url: "https://www.grecia.info/es/islas-jonicas/zakynthos/",
@@ -1950,8 +1950,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("greece"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1661963725253-c0632ab8782d?q=80&w=3307&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Traditional Greek fishing village with colorful houses reflecting in crystal clear waters",
+          src: "/images/greek-islands-trip/blue-dome.jpg",
+          alt: "Classic blue domed church overlooking Santorini's caldera at sunset",
         },
         link: {
           url: "https://www.milos.gr/en/",
@@ -2096,33 +2096,33 @@ export const tripsMockup: Trip[] = [
 
     media: {
       coverImage: {
-        src: "https://plus.unsplash.com/premium_photo-1661964149725-fbf14eabd38c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Greek Islands",
+        src: "/images/greek-islands-trip/santorini-night.jpg",
+        alt: "Santorini at night",
       },
       gallery: [
         {
-          src: "https://plus.unsplash.com/premium_photo-1661915579393-fe1ea2b5b107?q=80&w=3300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/greek-islands-trip/mills.jpg",
           alt: "Classic blue domed church overlooking Santorini's caldera at sunset",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661962321084-64b087bf7c5d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Whitewashed buildings cascading down hillside with Aegean Sea views in Oia",
+          src: "/images/greek-islands-trip/santorini-night-2.jpg",
+          alt: "Santorini at night",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661948738129-f87e7ba1f0d0?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Narrow cobblestone alley with traditional Greek architecture and blooming bougainvillea",
+          src: "/images/greek-islands-trip/temple.jpg",
+          alt: "Greek temple",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1688410049290-d7394cc7d5df?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Crystal clear turquoise waters of Navagio Beach with famous shipwreck in Zakynthos",
+          src: "/images/greek-islands-trip/santorini-day.jpg",
+          alt: "Santorini at day",
         },
         {
           src: "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           alt: "Panoramic view of Mykonos windmills at golden hour overlooking the harbor",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661963725253-c0632ab8782d?q=80&w=3307&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Charming seaside taverna with blue chairs and tables by the Mediterranean Sea",
+          src: "/images/greek-islands-trip/blue-dome.jpg",
+          alt: "Classic blue domed church overlooking Santorini's caldera at sunset",
         },
         {
           src: "https://images.unsplash.com/photo-1637170479800-47b5eeae5654?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -2644,8 +2644,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("iceland"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1675484743424-288808877324?q=80&w=3465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Ice cave within Vatnajökull glacier with crystal blue ice formations",
+          src: "/images/iceland-trip/waterfalls.jpg",
+          alt: "Iceland waterfalls",
         },
         link: {
           url: "https://www.vatnajokulsthjodgardur.is/en",
@@ -2663,8 +2663,8 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("iceland"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1664298686680-dd1d0e2a9f13?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Diamond Beach near Jökulsárlón with black sand and crystal ice blocks",
+          src: "/images/iceland-trip/iceberg.jpg",
+          alt: "Iceland iceberg",
         },
         link: {
           url: "https://icelagoon.is/",
@@ -2840,12 +2840,12 @@ export const tripsMockup: Trip[] = [
           alt: "Powerful Seljalandsfoss waterfall with pathway behind the cascading water",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1674086970773-726e445f5802?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Northern Lights dancing over snow-covered landscape with starry sky",
+          src: "/images/iceland-trip/mountain.jpg",
+          alt: "Northern Iceland Mountain",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1675484743424-288808877324?q=80&w=3465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Crystal-blue ice cave interior with smooth, sculpted walls and natural light",
+          src: "/images/iceland-trip/waterfalls.jpg",
+          alt: "Iceland waterfalls",
         },
         {
           src: "https://images.unsplash.com/photo-1488415032361-b7e238421f1b?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -2989,7 +2989,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("vietnam"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1690960644375-6f2399a08ebc?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/vietnam-trip/river.jpg",
           alt: "Traditional boats with colorful lanterns on Thu Bon River in Hoi An Ancient Town",
         },
         link: {
@@ -3028,7 +3028,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("vietnam"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1692731798042-c0cfec5c38fa?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/vietnam-trip/ha-long.jpg",
           alt: "Dramatic limestone karsts rising from emerald waters in Ha Long Bay",
         },
         link: {
@@ -3192,13 +3192,13 @@ export const tripsMockup: Trip[] = [
 
     media: {
       coverImage: {
-        src: "https://plus.unsplash.com/premium_photo-1661854008793-8ce54b2e622b?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Vietnam Heritage",
+        src: "/images/vietnam-trip/rice-field.jpg",
+        alt: "Terraced rice fields in Mu Cang Chai with morning mist rolling through mountains",
       },
       gallery: [
         {
-          src: "https://plus.unsplash.com/premium_photo-1692731797429-29f36ab2bd68?q=80&w=2427&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Terraced rice fields in Mu Cang Chai with morning mist rolling through mountains",
+          src: "/images/vietnam-trip/ha-long-2.jpg",
+          alt: "Dramatic limestone karsts rising from emerald waters in Ha Long Bay",
         },
         {
           src: "https://images.unsplash.com/photo-1527577440030-436a36b07401?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -3213,8 +3213,8 @@ export const tripsMockup: Trip[] = [
           alt: "Bustling street food market in Hanoi's Old Quarter with local vendors",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1691960159059-04976913256a?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "Woman in traditional conical hat harvesting rice in vibrant green paddy field",
+          src: "/images/vietnam-trip/traditional-house.jpg",
+          alt: "Traditional house from Vietnam",
         },
         {
           src: "https://images.unsplash.com/photo-1489659429806-4069d3fcde9a?q=80&w=3514&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -3339,7 +3339,7 @@ export const tripsMockup: Trip[] = [
       },
       country: getCountryBySlug("italy"),
       image: {
-        src: "https://plus.unsplash.com/premium_photo-1661962827254-d208b6ec327f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        src: "/images/tuscany-trip/florence-cathedral.jpg",
         alt: "Iconic Florence Cathedral and Brunelleschi's Dome dominating the city skyline",
       },
       link: {
@@ -3379,7 +3379,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("italy"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1676496046656-cdad44276497?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/fields.jpg",
           alt: "Rolling hills of Chianti covered with vineyard rows and traditional Tuscan cypress trees",
         },
         link: {
@@ -3419,7 +3419,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("italy"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1690494027059-05475ed0b2fa?q=80&w=3329&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/san-gimignano.jpg",
           alt: "Medieval towers of San Gimignano rising above the Tuscan countryside at sunset",
         },
         link: {
@@ -3577,7 +3577,7 @@ export const tripsMockup: Trip[] = [
           alt: "Medieval towers of San Gimignano rising above the Tuscan countryside at golden hour",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1676496046656-cdad44276497?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/fields.jpg",
           alt: "Picturesque vineyard rows with rustic villa and blooming spring flowers in Chianti region",
         },
         {
@@ -3589,15 +3589,15 @@ export const tripsMockup: Trip[] = [
           alt: "Traditional Italian pasta making with fresh ingredients on rustic wooden table",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661962262643-9d106f78406a?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/trees.jpg",
           alt: "Siena's Piazza del Campo with its distinctive shell shape and Torre del Mangia",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1677620406574-af0a784f0949?q=80&w=3436&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/flowers.jpg",
           alt: "Misty morning over Tuscan olive grove with ancient stone farmhouse",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1661962827254-d208b6ec327f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/tuscany-trip/florence-cathedral.jpg",
           alt: "Florence Cathedral (Duomo) and Giotto's Campanile rising above city rooftops",
         },
       ],
@@ -3940,7 +3940,7 @@ export const tripsMockup: Trip[] = [
           alt: "Cozy wooden cabin glowing warmly in snow-covered arctic wilderness at dusk",
         },
         {
-          src: "https://plus.unsplash.com/premium_photo-1671039654121-9047ffc439c3?q=80&w=3475&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/artic-trip/ice-top.jpg",
           alt: "Majestic reindeer with full antlers standing in snowy arctic tundra",
         },
         {
@@ -4124,7 +4124,7 @@ export const tripsMockup: Trip[] = [
         },
         country: getCountryBySlug("united-arab-emirates"),
         image: {
-          src: "https://plus.unsplash.com/premium_photo-1661964298224-7747aa0ac10c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "/images/dubai-trip/dubai-buildings.jpg",
           alt: "Dubai Marina's glittering skyline and yacht harbor illuminated at night",
         },
         link: {

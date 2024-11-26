@@ -15,12 +15,12 @@ import styles from "./SearchForm.module.scss";
 const cx = classNames.bind(styles);
 
 const regions = [
-  { label: "Flexible search", image: "/world.svg" },
-  { label: "México", image: "/mx.svg" },
-  { label: "North America", image: "/north-america.svg" },
-  { label: "United States", image: "/us.svg" },
-  { label: "Africa", image: "/africa.svg" },
-  { label: "Europe", image: "/europe.svg" },
+  { label: "Flexible search", image: "/illustrations/world.svg" },
+  { label: "México", image: "/illustrations/mx.svg" },
+  { label: "North America", image: "/illustrations/north-america.svg" },
+  { label: "United States", image: "/illustrations/us.svg" },
+  { label: "Africa", image: "/illustrations/africa.svg" },
+  { label: "Europe", image: "/illustrations/europe.svg" },
 ];
 
 interface SearchFormProps {

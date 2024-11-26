@@ -53,28 +53,28 @@ export const headerData: HeaderProps = {
     ],
     logos: {
       defaultLogo: {
-        url: "/trvlr-logo.png",
+        url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
         width: 146,
         height: 52,
       },
       light: {
-        url: "/trvlr-logo.png",
+        url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
         width: 146,
         height: 52,
       },
       lightMobile: {
-        url: "/trvlr-logo.png",
+        url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
         width: 146,
         height: 52,
       },
       dark: {
-        url: "/trvlr-logo.png",
+        url: "/images/trvlr-logo.png",
         href: "//",
         alt: "logo",
         width: 146,
@@ -117,7 +117,7 @@ export const footerData: FooterProps = {
     copyright_name: "Travlr",
     copyright_french: "Travlr", // Alternative language option
     logo: {
-      url: "/trvlr-logo.png",
+      url: "/images/trvlr-logo.png",
       alt: "Travlr Logo",
       width: 146,
       height: 52,
@@ -145,7 +145,7 @@ export const footerData: FooterProps = {
 export const layoutItems: LayoutVariantsGridItem[] = [
   {
     type: "image",
-    src: "https://plus.unsplash.com/premium_photo-1701769001159-ab615ecee55a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFtdXNlbWVudCUyMHBhcmslMjBuaWdodHxlbnwwfDB8MHx8fDA%3D",
+    src: "/images/amusement-park-night.jpg",
     alt: "Amusement park illuminated at night",
   },
   {
@@ -157,7 +157,7 @@ export const layoutItems: LayoutVariantsGridItem[] = [
   {
     type: "video",
     src: "https://cdn.pixabay.com/video/2023/08/02/174305-851138233_tiny.mp4",
-    placeholderImage: "/city-at-night-placeholder.png",
+    placeholderImage: "/images/city-at-night-placeholder.png",
   },
   {
     type: "image",
@@ -167,7 +167,7 @@ export const layoutItems: LayoutVariantsGridItem[] = [
   {
     type: "video",
     src: "https://cdn.pixabay.com/video/2019/02/01/21116-315137080_tiny.mp4",
-    placeholderImage: "/city-at-night-placeholder-2.png",
+    placeholderImage: "/images/city-at-night-placeholder-2.png",
   },
   {
     type: "image",
@@ -180,7 +180,7 @@ export const heroSlides = [
   {
     video_url: "https://cdn.pixabay.com/video/2024/10/18/236893_large.mp4",
     image: {
-      url: "/artic-ship.png",
+      url: "/images/artic-ship.png",
       alt: "Artic Ship",
     },
   },
