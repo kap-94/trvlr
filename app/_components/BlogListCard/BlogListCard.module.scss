@@ -27,6 +27,7 @@
     justify-content: flex-start;
     max-width: 300px;
     overflow: scroll;
+    gap: 8px;
 
     /* Ocultar scrollbar en navegadores Webkit */
     &::-webkit-scrollbar {

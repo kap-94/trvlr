@@ -97,7 +97,11 @@
   &__label {
     position: relative;
     z-index: 1;
-    // font-size: 15px;
+    font-size: rem(24);
+
+    @media only screen and (max-width: $medium) {
+      font-size: rem(18);
+    }
   }
 
   &__indicator {

@@ -118,7 +118,7 @@ const renderText = (
   return (
     <div className={baseClass} key={index}>
       <div className={cx("grid__text-box")}>
-        <Typography variant="h3" color="white">
+        <Typography variant="h4" color="white">
           {title}
         </Typography>
         <Typography variant="p1" color="white">

@@ -44,7 +44,7 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
               aria-selected={selected.value === category.value}
             >
               <Typography
-                variant="h4"
+                variant="h5"
                 className={cx("category-filters__label")}
               >
                 {category.label}

@@ -76,7 +76,7 @@ export const FeaturedTripCard: FC<TripCardProps> = ({ data, className }) => {
 
           <div className={cx("card__overlay")}>
             <Typography
-              variant="h4"
+              variant="h5"
               color="white"
               className={cx("card__overlay-title")}
             >

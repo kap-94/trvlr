@@ -46,7 +46,7 @@ export const TripCard: FC<TripCardProps> = ({
         </div>
 
         <div className={cx("trip-card__content")}>
-          <Typography variant="h4" className={cx("trip-card__title")}>
+          <Typography variant="h5" className={cx("trip-card__title")}>
             {title}
           </Typography>
 

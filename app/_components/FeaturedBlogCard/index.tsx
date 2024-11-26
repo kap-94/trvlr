@@ -49,10 +49,10 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
       </div>
       <div className={cx("card__overlay")}>
         <div className={cx("card__text")}>
-          <Typography variant="h5" color="white">
+          {/* <Typography variant="eyebrow" color="white">
             {eyebrow}
-          </Typography>
-          <Typography variant="h3" color="white">
+          </Typography> */}
+          <Typography variant="h4" color="white">
             {title}
           </Typography>
           <Typography variant="p1" color="white">

@@ -46,7 +46,9 @@ const BlogPost: React.FC<BlogDetailView> = (data) => {
         </div>
 
         <div className={cx("blog-post__meta")}>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="h1" className={cx("blog-post__title")}>
+            {title}
+          </Typography>
           <Typography variant="h5">
             By {author.name} | {new Date(publishDate).toLocaleDateString()} |{" "}
             {readTime} min read
@@ -134,7 +136,7 @@ const BlogPost: React.FC<BlogDetailView> = (data) => {
 
       {/* Related Posts */}
       <div className={cx("blog-post__related-posts")}>
-        <Typography variant="h2">Related Posts</Typography>
+        <Typography variant="h3">Related Posts</Typography>
         <ul>
           {relatedPosts?.map((post) => (
             <li key={post.id}>

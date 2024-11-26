@@ -39,7 +39,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
 
   return (
     <section className={cx("gallery", className)}>
-      <Typography variant="h2">Gallery</Typography>
+      <Typography variant="h3">Gallery</Typography>
       <div className={cx("gallery__grid")}>
         {images?.map((image, index) => (
           <div

@@ -44,7 +44,7 @@ export const BlogListCard: React.FC<BlogListCardProps> = ({
         />
       </div>
       <div className={cx("blog-card__content")}>
-        <Typography variant="h4">{title}</Typography>
+        <Typography variant="h5">{title}</Typography>
         <Typography variant="p2">{subtitle}</Typography>
       </div>
     </Link>

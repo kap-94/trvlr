@@ -41,7 +41,7 @@ export const BlogCard: FC<BlogCardProps> = ({ post }) => {
           <div className={cx("blog-card__body")}>
             {title && (
               <Typography
-                variant="h3"
+                variant="h4"
                 // fontWeight={600}
                 // fontFamily="raleway"
                 className={cx("blog-card__title")}
@@ -62,8 +62,8 @@ export const BlogCard: FC<BlogCardProps> = ({ post }) => {
           <div className={cx("blog-card__footer")}>
             {author && author.name && (
               <Typography
-                variant="h5"
-                fontWeight={600}
+                variant="p1"
+                fontWeight={700}
                 className={cx("blog-card__location")}
               >
                 {author.name}

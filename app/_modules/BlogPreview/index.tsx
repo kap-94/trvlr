@@ -58,7 +58,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
         <div
           className={cx("blog-preview__column", "blog-preview__column--right")}
         >
-          <Typography variant="h2" className={cx("blog-preview__subheading")}>
+          <Typography variant="h4" className={cx("blog-preview__subheading")}>
             Latest Blogs
           </Typography>
           <div className={cx("blog-preview__list")}>
@@ -73,8 +73,14 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
             ))}
           </div>
 
-          <Button variant="link" target="_self" href="/blog">
-            See all the articles
+          <Button
+            variant="link"
+            className={cx("link-clean")}
+            target="_self"
+            href="/blog"
+            icon={{ source: "lucide", name: "arrow-right" }}
+          >
+            <span style={{ color: "#000000" }}>See all the articles</span>
           </Button>
         </div>
       </div>
