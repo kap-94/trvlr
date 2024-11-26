@@ -92,7 +92,7 @@ const Map: FC<MapProps> = ({ center, zoom, locations }) => (
 
             {location.link && (
               <Button
-                variant="link-light"
+                variant="link"
                 href={location.link.url}
                 target="_blank"
                 className={cx("popup-content__button")}
