@@ -7,11 +7,11 @@ import styles from "./AnimatedText.module.scss";
 const cx = classNames.bind(styles);
 
 const PHRASES = [
-  "Explore the World",
-  "Chase the Sunset",
-  "Hidden Treasures",
   "Find The Journey",
+  "Chase the Sunset",
   "Your Grand Story",
+  // "Hidden Treasures",
+  // "Tour the World",
 ];
 
 export const AnimatedText: FC = () => {
