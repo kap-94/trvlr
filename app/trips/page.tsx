@@ -6,6 +6,7 @@ import { TripGrid } from "@/app/_modules";
 import { Button, SectionHeader, Spinner, Typography } from "@/app/_components";
 import { getTripsData } from "./actions";
 import styles from "./TripsPage.module.scss";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -64,14 +65,11 @@ async function TripGridContent({
             Try adjusting your search criteria or explore our other destinations
           </Typography>
 
-          <Button
-            variant="link-dark"
-            href="/trips"
-            target="_self"
-            className={cx("no-results__button")}
-          >
-            Explore Guides
-          </Button>
+          <Link href="/trips">
+            <Button variant="primary" className={cx("no-results__button")}>
+              Explore Guides
+            </Button>
+          </Link>
         </div>
       )}
 
