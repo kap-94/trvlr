@@ -1,13 +1,12 @@
 import { FC } from "react";
 import classnames from "classnames/bind";
+import { TripCardView } from "@/app/_types";
 import {
   ResponsiveGrid,
   FeaturedTripCard,
   SectionHeader,
 } from "@/app/_components";
 import styles from "./FeaturedTrips.module.scss";
-import { TripCardView } from "@/app/_types";
-// import { TripCardData } from "@/app/_components/FeaturedTripCard";
 
 const cx = classnames.bind(styles);
 
@@ -19,9 +18,11 @@ const FeaturedTrips: FC<Props> = ({ trips }) => {
   return (
     <section className={cx("featured-trips")} id={"featured-trips"}>
       <SectionHeader
+        eyebrow="What's New"
         title={"The Hotest Trips"}
         subtitle="Discover the most amazing adventures, collect experiences for life."
         className={cx("featured-trips__heading")}
+        style="corner-stack"
       />
 
       <div className={cx("featured-trips__content")}>
