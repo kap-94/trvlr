@@ -32,9 +32,11 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
       <div className={cx("blog-preview__background")}></div>
 
       <SectionHeader
+        eyebrow="Must Read"
         title="Trending Now"
+        style="corner-stack"
         subtitle="Discover the latest blog posts"
-        className={cx("blog-preview__heading")}
+        // className={cx("blog-preview__heading")}
       />
 
       <div className={cx("blog-preview__content")}>
@@ -71,7 +73,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
             ))}
           </div>
 
-          <Button variant="link-dark" target="_self" href="/blog">
+          <Button variant="link" target="_self" href="/blog">
             See all the articles
           </Button>
         </div>
