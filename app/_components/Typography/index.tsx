@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames/bind";
-import { kepler, raleway } from "@/app/_fonts";
+import { dmSerifDisplay, raleway } from "@/app/_fonts";
 import {
   TypographyColor,
   TypographyProps,
@@ -24,7 +24,7 @@ export const colorMapping: { [key in TypographyColor]: string } = {
 };
 
 export const Typography: React.FC<
-  TypographyProps & { fontFamily?: "raleway" | "kepler" }
+  TypographyProps & { fontFamily?: "raleway" | "dmSerifDisplay" }
 > = ({
   align = "inherit",
   children,
@@ -55,11 +55,11 @@ export const Typography: React.FC<
 
   // Mapeo de fuentes según el variant
   const fontMapping: { [key in TypographyVariant]: string } = {
-    h1: kepler.className,
-    h2: kepler.className,
-    h3: kepler.className,
-    h4: kepler.className,
-    h5: raleway.className,
+    h1: dmSerifDisplay.className,
+    h2: dmSerifDisplay.className,
+    h3: dmSerifDisplay.className,
+    h4: dmSerifDisplay.className,
+    h5: dmSerifDisplay.className,
     p1: raleway.className,
     p2: raleway.className,
     p3: raleway.className,
@@ -71,7 +71,7 @@ export const Typography: React.FC<
   const selectedFontFamily = fontFamily
     ? fontFamily === "raleway"
       ? raleway.className
-      : kepler.className
+      : dmSerifDisplay.className
     : fontMapping[variant];
 
   const Component = componentMapping[variant];
