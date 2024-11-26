@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   max-width: 1068px;
+  width: 100%;
   padding: 32px 40px;
   transition: all 0.3s ease;
 
@@ -14,32 +15,42 @@
   }
 
   @media only screen and (max-width: 900px) {
-    padding: 32px 24px;
+    padding: 32px 0;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 700px;
   }
 
   &__title {
-    margin-bottom: 8px;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
   }
 
   &__subtitle {
-    margin-bottom: 72px;
+    margin-bottom: 136px;
+    font-size: 18px;
 
     @media only screen and (max-width: 768px) {
-      margin-bottom: 36px;
+      margin-bottom: 108px;
     }
   }
 
   &__description {
     margin-bottom: 24px;
     max-width: 600px;
-
-    @media only screen and (max-width: 900px) {
-      display: none;
-    }
+    // font-size: 18px;
   }
 
-  &__trips-form {
+  &__form {
     width: 100%;
+    max-width: 600px;
 
     @media only screen and (max-width: 900px) {
       margin-bottom: 24px;
@@ -50,6 +61,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 28px;
+    color: $white-color;
 
     @media only screen and (max-width: 900px) {
       > p {

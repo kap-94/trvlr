@@ -1,0 +1,24 @@
+.travel-guide-images {
+  padding: 30px 48px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 48px 16px 20px;
+  }
+
+  &__header {
+    margin-bottom: 48px;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__grid {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+}

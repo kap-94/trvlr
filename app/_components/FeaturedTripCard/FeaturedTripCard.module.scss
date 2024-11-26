@@ -1,0 +1,136 @@
+@import "../../_styles/variables.scss";
+
+.card {
+  border-radius: $card-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.3s ease;
+  height: 100%;
+
+  &__header {
+    height: 100%;
+    position: relative;
+  }
+
+  &__image {
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__icon-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 3;
+    display: grid;
+    place-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &__overlay {
+    align-items: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    // background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+      to right,
+      rgba($black-color, 0.5),
+      rgba($primary-color, 0.5)
+    );
+    border: 2px solid rgba($white-color, 0.6);
+    // border: 3px solid transparent; // Define el tamaño del borde, pero lo hacemos transparente
+    // border-image: linear-gradient(
+    //     to right,
+    //     rgba($black-color, 0.5),
+    //     rgba($primary-color, 0.5)
+    //   )
+    //   1;
+    overflow: hidden;
+    border-radius: $card-radius;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    left: 0;
+    opacity: 0;
+    padding-inline: 16px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 2;
+
+    @media only screen and (max-width: $medium) {
+      padding-inline: 40px;
+    }
+
+    > * {
+      transform: translateY(10px);
+    }
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   border-radius: $card-radius;
+    //   border: 3px solid transparent;
+    //   background: linear-gradient(
+    //     to right,
+    //     rgba($black-color, 0.5),
+    //     rgba($primary-color, 0.5)
+    //   );
+    //   z-index: -1;
+    // }
+  }
+
+  &__overlay-title {
+    // margin-bottom: 4px;
+  }
+
+  &__overlay-subtitle {
+    // margin-bottom: 20px;
+  }
+
+  &__overlay-info {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; // Limita el texto a 3 líneas
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // &__overlay-countries {
+  //   margin-bottom: 12px;
+  //   font-size: 0.9rem;
+  //   color: rgba($white-color, 0.8);
+  // }
+
+  &__overlay-divider {
+    width: 60%;
+    height: 1px;
+    background-color: rgba($white-color, 0.3);
+    margin: 12px auto;
+  }
+
+  &:hover {
+    .card {
+      &__overlay {
+        opacity: 1;
+      }
+    }
+  }
+}

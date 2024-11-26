@@ -6,7 +6,8 @@
   justify-content: center;
   align-items: center;
   gap: 64px;
-  padding: 90px 36px;
+  padding: 100px 36px;
+  z-index: -1;
 
   @media only screen and (max-width: $medium) {
     padding: 40px 24px;
@@ -22,5 +23,25 @@
   &__content {
     max-width: 1200px;
     width: 100%;
+  }
+}
+
+.featured-trips {
+  position: relative;
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.1),
+      transparent
+    );
   }
 }

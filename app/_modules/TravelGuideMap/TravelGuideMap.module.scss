@@ -1,0 +1,24 @@
+.travel-guide-map {
+  padding: 100px 0 0;
+
+  @media only screen and (max-width: 1024px) {
+    padding: 48px 0;
+  }
+
+  &__header {
+    margin-bottom: 48px;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__map {
+    width: 100%;
+    overflow: hidden;
+  }
+}

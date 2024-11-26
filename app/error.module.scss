@@ -1,0 +1,51 @@
+@import "../app/_styles/variables.scss";
+
+.error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: $white-color;
+
+  &__content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    background-color: $white-color;
+    border-radius: 1rem;
+    // box-shadow: $shadow-blue;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__description {
+    margin-bottom: 2rem;
+    color: var(--color-text-primary, #374151);
+  }
+
+  &__technical {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--color-background-secondary, #f3f4f6);
+    border-radius: 0.5rem;
+    font-family: monospace;
+    color: var(--color-text-secondary, #6b7280);
+  }
+
+  &__button {
+    padding: 1rem 2rem;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 640px) {
+    padding: 1rem;
+
+    &__content {
+      padding: 2rem 1rem;
+    }
+  }
+}

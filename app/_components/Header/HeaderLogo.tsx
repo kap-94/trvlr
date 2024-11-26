@@ -23,7 +23,7 @@ export interface Logos {
 interface HeaderLogoProps {
   data: Logos;
   closeMenu: () => void;
-  variant: "default" | "scrolled";
+  variant: "default" | "light";
 }
 
 const HeaderLogo: React.FC<HeaderLogoProps> = ({
@@ -64,8 +64,8 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({
       {light && (
         <div
           className={cx("logo__image", "logo__light", {
-            "logo--visible": variant === "scrolled",
-            "logo--hidden": variant !== "scrolled",
+            "logo--visible": variant === "light",
+            "logo--hidden": variant !== "light",
           })}
         >
           <Image

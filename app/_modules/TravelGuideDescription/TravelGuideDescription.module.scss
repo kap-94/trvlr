@@ -1,0 +1,133 @@
+.travel-guide {
+  padding: 72px 48px;
+  overflow: hidden;
+
+  @media only screen and (max-width: 1024px) {
+    padding: 64px 24px;
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    position: relative;
+
+    @media only screen and (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    max-height: 700px;
+    max-width: 364px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__text-content {
+    text-align: left;
+    max-width: 600px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    margin-bottom: 40px;
+    color: #666;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 44px;
+    line-height: 1.6;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__inspirational-text-heading {
+    margin-bottom: 8px;
+  }
+
+  &__inspirational-text {
+    // margin-bottom: 8px;
+    // color: #34495e;
+  }
+
+  &__details {
+    // margin-bottom: 2rem;
+  }
+
+  &__section-heading {
+    margin-top: 40px;
+    margin-bottom: 16px;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 24px;
+    }
+  }
+
+  &__info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    // max-width: 420px;
+  }
+
+  &__info-label {
+    // font-weight: 600;
+  }
+
+  &__info-value {
+    // color: #333;
+  }
+
+  &__culture,
+  &__transportation,
+  &__visa-info,
+  &__safety-tips {
+    margin-bottom: 1rem;
+    // line-height: 1.6;
+  }
+
+  &__food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__food-item {
+    margin-bottom: 0.5rem;
+  }
+
+  &__author {
+    margin-top: 2rem;
+  }
+
+  &__author-link {
+    color: #0070f3;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

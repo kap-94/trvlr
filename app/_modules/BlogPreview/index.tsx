@@ -2,30 +2,41 @@
 
 import React from "react";
 import classnames from "classnames/bind";
-import { blogData } from "@/app/_lib/data";
 import {
   BlogListCard,
   Button,
   FeaturedBlogCard,
-  SectionHeading,
+  SectionHeader,
   Typography,
 } from "@/app/_components";
+import { BlogCardView } from "@/app/_types";
 import styles from "./BlogPreview.module.scss";
 
 const cx = classnames.bind(styles);
 
-const BlogPreview: React.FC = () => {
-  const featuredPosts = blogData
-    .filter((post) => post.type === "featured")
-    .slice(0, 2);
-  const listPosts = blogData.filter((post) => post.type === "list").slice(0, 6);
+interface BlogPreviewProps {
+  featuredPosts: BlogCardView[];
+  latestPosts: BlogCardView[];
+}
+
+const BlogPreview: React.FC<BlogPreviewProps> = ({
+  featuredPosts,
+  latestPosts,
+}) => {
+  const nonFeaturedPosts = latestPosts
+    .filter((post) => post.type !== "featured")
+    .slice(0, 6);
 
   return (
     <section className={cx("blog-preview")}>
-      <SectionHeading
+      <div className={cx("blog-preview__background")}></div>
+
+      <SectionHeader
+        eyebrow="Must Read"
         title="Trending Now"
+        style="corner-stack"
         subtitle="Discover the latest blog posts"
-        className={cx("blog-preview__heading")}
+        // className={cx("blog-preview__heading")}
       />
 
       <div className={cx("blog-preview__content")}>
@@ -35,11 +46,11 @@ const BlogPreview: React.FC = () => {
           {featuredPosts.map((post) => (
             <FeaturedBlogCard
               key={post.id}
-              imageSrc={post.imageSrc}
-              eyebrow={post.eyebrow || ""}
+              link={post.slug}
+              image={post.coverImage}
+              // eyebrow={post.subtitle || ""}
               title={post.title}
-              subtitle={post.subtitle}
-              link={post.link}
+              subtitle={post.subtitle || ""}
             />
           ))}
         </div>
@@ -47,23 +58,29 @@ const BlogPreview: React.FC = () => {
         <div
           className={cx("blog-preview__column", "blog-preview__column--right")}
         >
-          <Typography variant="h2" className={cx("blog-preview__subheading")}>
+          <Typography variant="h4" className={cx("blog-preview__subheading")}>
             Latest Blogs
           </Typography>
           <div className={cx("blog-preview__list")}>
-            {listPosts.map((post) => (
+            {nonFeaturedPosts.map((post) => (
               <BlogListCard
                 key={post.id}
-                imageSrc={post.imageSrc}
+                link={post.slug}
+                image={post.coverImage}
                 title={post.title}
-                subtitle={post.subtitle}
-                link={post.link}
+                subtitle={post.subtitle || ""}
               />
             ))}
           </div>
 
-          <Button variant="link-dark" href="/">
-            See all the articles
+          <Button
+            variant="link"
+            className={cx("link-clean")}
+            target="_self"
+            href="/blog"
+            icon={{ source: "lucide", name: "arrow-right" }}
+          >
+            <span style={{ color: "#000000" }}>See all the articles</span>
           </Button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Raleway } from "next/font/google";
+import { DM_Serif_Display, Raleway } from "next/font/google";
 import localFont from "next/font/local";
 
 export const raleway = Raleway({
@@ -7,7 +7,13 @@ export const raleway = Raleway({
   display: "swap",
 });
 
-export const kepler = localFont({
-  src: "./Kepler/Kepler-Std-Display_26108.ttf",
+export const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
   display: "swap",
 });
+
+// export const kepler = localFont({
+//   src: "./Kepler/Kepler-Std-Display_26108.ttf",
+//   display: "swap",
+// });

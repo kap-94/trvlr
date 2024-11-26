@@ -1,7 +1,7 @@
 import { useEffect, useRef, RefObject } from "react";
 
 export function useOutsideClick(
-  handler: () => void,
+  handler: (event: MouseEvent) => void, // Actualizado para aceptar el evento
   listenCapturing = true
 ): RefObject<any> {
   const ref = useRef<any>(null);
@@ -9,7 +9,7 @@ export function useOutsideClick(
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        handler();
+        handler(e); // Pasamos el evento al handler
       }
     }
 

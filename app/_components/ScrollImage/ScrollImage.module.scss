@@ -1,0 +1,27 @@
+@import "../../_styles/variables.scss";
+
+.scroll-image {
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100%;
+  overflow: visible;
+  will-change: transform;
+
+  &__wrapper {
+    box-shadow: $shadow-blue;
+    // border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 640px;
+    will-change: transform;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,40 @@
+@import "../app/_styles/variables.scss";
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: $white-color;
+
+  &__content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    border-radius: 1rem;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__description {
+    margin-bottom: 2rem;
+    color: var(--color-text-primary, #374151);
+  }
+
+  &__button {
+    padding: 1rem 2rem;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 640px) {
+    padding: 1rem;
+
+    &__content {
+      padding: 2rem 1rem;
+    }
+  }
+}

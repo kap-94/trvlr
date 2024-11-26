@@ -1,37 +1,32 @@
-// Button.module.scss
 @import "../../_styles/variables.scss";
 @import "../../_styles/mixins.scss";
 
 .button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease-in;
-  white-space: nowrap; /* Reemplaza text-wrap: nowrap; */
+  white-space: nowrap;
   width: fit-content;
   text-decoration: none;
-
-  // &:hover {
-  //   transform: translateY(-3px);
-  // }
-
-  // &:active,
-  // &:focus {
-  //   box-shadow: 0 5px 12.5px rgba(0, 0, 0, 0.07);
-  //   transform: translateY(-1px);
-  // }
+  &__text {
+  }
 
   &__icon {
     display: flex;
     align-items: center;
-    margin-left: 12px; /* Mantenemos el margen consistente */
+    justify-content: center;
+    // margin-left: 8px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
   }
 
   &__spinner {
-    margin-left: 8px; /* Igual que los íconos */
     display: flex;
     align-items: center;
   }
@@ -54,6 +49,7 @@
 
   &--medium {
     padding: 17px 16px;
+    gap: 8px;
 
     &.button--pill {
       border-radius: 20px;
@@ -68,7 +64,8 @@
   }
 
   &--large {
-    padding: 20px 18px;
+    padding: 18px 20px;
+    gap: 8px;
 
     &.button--pill {
       border-radius: 24px;
@@ -87,7 +84,6 @@
 
     &:hover {
       filter: brightness(1.1);
-      // background-color: $ui-aqua;
     }
 
     &[disabled],
@@ -111,7 +107,6 @@
 
     &:hover {
       filter: brightness(1.1);
-      // background-color: $ui-aqua;
     }
 
     &[disabled],
@@ -131,10 +126,14 @@
   }
 
   &--secondary {
-    background-color: $secondary-color;
+    background-color: $primary-color-dark;
+
+    p {
+      color: $white-color !important;
+    }
 
     &:hover {
-      background-color: $secondary-color-light;
+      filter: brightness(1.1);
     }
 
     &[disabled],
@@ -144,63 +143,271 @@
     }
 
     .button__icon {
-      filter: brightness(0) invert(25%) sepia(16%) saturate(1346%)
-        hue-rotate(194deg) brightness(96%) contrast(98%);
+      filter: brightness(100);
     }
   }
 
-  &--link-light {
+  &--link {
     background-color: transparent;
-    border-radius: 0;
-    border-bottom: 2px solid $white-color;
-    padding: 8px 0;
-    display: flex;
-    gap: 12px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    border: none;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.2s ease;
 
-    &:active,
-    &:focus {
-      transform: none;
-      box-shadow: none;
-    }
-
+    // Base styles for all link variants
     .button__text {
       color: $white-color;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+      padding-inline: 6px;
     }
 
     .button__icon {
-      filter: brightness(100);
-      transform: rotate(-45deg);
-    }
-  }
-
-  &--link-dark {
-    background-color: transparent;
-    border-radius: 0;
-    border-bottom: 2px solid $black-color;
-    padding: 8px 0;
-    display: flex;
-    gap: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-
-    &:active,
-    &:focus {
-      transform: none;
-      box-shadow: none;
+      font-size: 18px;
+      transition: transform 0.2s ease;
     }
 
-    .button__text {
-      color: $black-color;
-      font-size: 15px;
+    &.link-classic {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+
+      &:hover {
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(3px);
+      }
     }
 
-    .button__icon {
-      filter: brightness(0);
-      transform: rotate(-45deg);
+    &.link-dotted {
+      border-bottom: 1px dotted currentColor;
+      padding-bottom: 2px;
+
+      &:hover {
+        border-bottom-style: solid;
+        padding-bottom: 3px;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(3px);
+      }
+    }
+
+    &.link-smooth {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        opacity: 0.5;
+        transition: all 0.2s ease;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        height: 2px;
+        bottom: -3px;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(3px);
+      }
+    }
+
+    &.link-double {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        left: 0;
+        opacity: 0.3;
+        transition: all 0.2s ease;
+      }
+
+      &::before {
+        bottom: -1px;
+      }
+
+      &::after {
+        bottom: -4px;
+      }
+
+      &:hover::before,
+      &:hover::after {
+        opacity: 1;
+      }
+
+      &:hover::after {
+        bottom: -5px;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(3px);
+      }
+    }
+
+    &.link-highlight {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        bottom: 2px;
+        left: 0;
+        background-color: currentColor;
+        opacity: 0.1;
+        transition: all 0.2s ease;
+        z-index: -1;
+      }
+
+      &:hover::before {
+        height: 100%;
+        bottom: 0;
+        opacity: 0.08;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(3px);
+      }
+    }
+
+    &.link-clean {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        // opacity: 0.95;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: right;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &.link-dash {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+        opacity: 1;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &.link-plus {
+      &::after {
+        content: "+";
+        margin-left: 4px;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.3s ease;
+      }
+
+      &:hover::after {
+        opacity: 0.7;
+        transform: translateX(0);
+      }
+
+      &:hover .button__icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &.link-fade {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(
+          to right,
+          currentColor 50%,
+          transparent 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.3s ease;
+      }
+
+      &:hover::after {
+        background-position: left bottom;
+      }
+
+      &:hover .button__icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &.link-arrow {
+      &::after {
+        content: "→";
+        opacity: 0;
+        margin-left: 4px;
+        transform: translateX(-8px);
+        transition: all 0.3s ease;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .button__icon {
+        display: none;
+      }
+    }
+
+    // Active/Focus states for all variants
+    &:active {
+      opacity: 0.7;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
     }
   }
 

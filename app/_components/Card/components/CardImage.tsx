@@ -30,9 +30,12 @@ export const CardImage: React.FC<CardImageProps> = ({
   };
 
   if (image) {
+    // imageToShow = image;
     imageToShow = image;
-  } else if (data.image) {
-    imageToShow = data.image;
+  } else if (data.coverImage) {
+    // } else if (data.image) {
+    imageToShow = data.coverImage;
+    // imageToShow = data.image;
   } else {
     imageToShow = defaultImage;
   }
@@ -47,7 +50,7 @@ export const CardImage: React.FC<CardImageProps> = ({
       />
       {title && subtitle && (
         <div className={cx("card__image-overlay")}>
-          <Typography variant="h4" color="white">
+          <Typography variant="h5" color="white">
             {title}
           </Typography>
           <Typography variant="p1" fontWeight={500} color="white">

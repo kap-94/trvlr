@@ -10,9 +10,9 @@
   overflow: hidden;
   transition: transform 0.3s ease;
 
-  @media only screen and (max-width: $xlarge) {
-    aspect-ratio: 2 / 1;
-  }
+  // @media only screen and (max-width: $xlarge) {
+  //   aspect-ratio: 2 / 1;
+  // }
 
   &:hover .card__image {
     transform: scale(1.1);
@@ -26,6 +26,7 @@
 
   &__image {
     z-index: 1;
+    object-fit: cover;
     transition: transform 0.3s ease;
   }
 

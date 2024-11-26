@@ -4,13 +4,16 @@
 .blog-card {
   display: flex;
   text-decoration: none;
+  height: 90px;
+  overflow: hidden;
 
   &__image-container {
     border-radius: calc($card-radius / 2);
     margin-right: 16px;
     position: relative;
-    height: 90px;
+    height: 100%;
     aspect-ratio: 1 / 1;
+    height: 90px;
     overflow: hidden;
   }
 
@@ -23,6 +26,16 @@
     flex-direction: column;
     justify-content: flex-start;
     max-width: 300px;
+    overflow: scroll;
+    gap: 8px;
+
+    /* Ocultar scrollbar en navegadores Webkit */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
   }
 
   &:hover {
