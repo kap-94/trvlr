@@ -29,7 +29,7 @@ export const headerData: HeaderProps = {
       {
         menu_item_id: 742,
         menu_item_parent: 0,
-        title: "Why and How Travel",
+        title: "Why Travel",
         target: "_self",
         url: "/why-travel",
         // icon: "clock",
@@ -56,29 +56,29 @@ export const headerData: HeaderProps = {
         url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
-        width: 146,
-        height: 52,
+        width: 124,
+        height: 44,
       },
       light: {
         url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
-        width: 146,
-        height: 52,
+        width: 124,
+        height: 44,
       },
       lightMobile: {
         url: "/images/trvlr-logo.png",
         href: "/",
         alt: "logo",
-        width: 146,
-        height: 52,
+        width: 124,
+        height: 44,
       },
       dark: {
         url: "/images/trvlr-logo.png",
         href: "//",
         alt: "logo",
-        width: 146,
-        height: 52,
+        width: 124,
+        height: 44,
       },
     },
   },
@@ -119,8 +119,8 @@ export const footerData: FooterProps = {
     logo: {
       url: "/images/trvlr-logo.png",
       alt: "Travlr Logo",
-      width: 146,
-      height: 52,
+      width: 124,
+      height: 44,
     },
     social_links: [
       {
@@ -189,8 +189,8 @@ export const heroSlides = [
 export const blogHeroSlide = [
   {
     image: {
-      url: "https://images.unsplash.com/photo-1648912024151-7bdb206b0547?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Travel Image",
+      url: "/images/traveler.jpg",
+      alt: "Jungle Backpacker",
     },
   },
 ];
