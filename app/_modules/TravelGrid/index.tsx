@@ -16,7 +16,7 @@ const TravelGrid: React.FC<TravelGridProps> = ({ items, variant }) => {
     <section className={cx("travel-grid")}>
       <SectionHeader
         title="When Night Falls"
-        subtitle="Discover the enchanting transformation of city streets at night"
+        // subtitle="Discover the enchanting transformation of city streets at night"
         className={cx("travel-grid__heading")}
       />
 
