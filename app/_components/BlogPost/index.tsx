@@ -49,7 +49,7 @@ const BlogPost: React.FC<BlogDetailView> = (data) => {
           <Typography variant="h1" className={cx("blog-post__title")}>
             {title}
           </Typography>
-          <Typography variant="h5">
+          <Typography variant="h5" style={{ marginLeft: "1px" }}>
             By {author.name} | {new Date(publishDate).toLocaleDateString()} |{" "}
             {readTime} min read
           </Typography>
@@ -126,13 +126,13 @@ const BlogPost: React.FC<BlogDetailView> = (data) => {
       )}
 
       {/* Tags */}
-      <div className={cx("blog-post__tags")}>
+      {/* <div className={cx("blog-post__tags")}>
         {tags.map((tag) => (
           <Typography variant="p2" key={tag} className={cx("blog-post__tag")}>
             #{tag}
           </Typography>
         ))}
-      </div>
+      </div> */}
 
       {/* Related Posts */}
       <div className={cx("blog-post__related-posts")}>
