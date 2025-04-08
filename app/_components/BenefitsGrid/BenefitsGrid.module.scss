@@ -1,0 +1,94 @@
+@import "../../_styles/variables.scss";
+
+.benefits-grid {
+  margin-bottom: 64px;
+
+  @media (max-width: 992px) {
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 48px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+
+    @media (max-width: 992px) {
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 12px;
+    background-color: $white-color;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @media (max-width: 768px) {
+      padding: 24px 20px;
+    }
+  }
+
+  &__icon {
+    margin-bottom: 16px;
+    width: 34px;
+    height: 34px;
+    background-color: rgba($secondary-color, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media only screen and (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
+
+    img,
+    svg {
+      width: 34px;
+      height: 34px;
+
+      @media only screen and (max-width: 768px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 12px;
+    font-size: 28px;
+    // color: $primary-color;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  &__item-description {
+    color: $black-color;
+    line-height: 1.6;
+  }
+}

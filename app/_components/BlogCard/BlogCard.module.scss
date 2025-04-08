@@ -4,6 +4,16 @@
   &__link {
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+      .blog-card__image {
+        transform: scale(1.05);
+      }
+
+      .blog-card__title {
+        color: $primary-color;
+      }
+    }
   }
 
   &__container {
@@ -31,7 +41,6 @@
 
   &__image-container {
     position: relative;
-
     width: 100%;
     padding-bottom: 66.67%; // This creates a 3:2 aspect ratio
     overflow: hidden;
@@ -42,12 +51,7 @@
   }
 
   &__image {
-    // transition: transform 0.7s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__content {
@@ -71,14 +75,10 @@
   &__title {
     margin: 0 0 16px;
     min-height: 64px;
-    transition: color 0.3s ease;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 
     @media only screen and (max-width: 976px) {
       min-height: initial;
-    }
-
-    &:hover {
-      color: $primary-color;
     }
   }
 

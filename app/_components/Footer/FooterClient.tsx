@@ -1,4 +1,3 @@
-// app/_components/Footer/FooterClient.tsx
 "use client";
 
 import { FC } from "react";
@@ -14,22 +13,12 @@ const cx = classNames.bind(styles);
 
 const FooterClient: FC<FooterProps> = ({
   light = true,
-  footerMenuData,
+  menuDataPrimary,
+  menuDataSecondary,
   frontPageID,
-  options: { logo, social_links, copyright_name },
+  options: { logo, copyright_name },
 }) => {
   const year = new Date().getFullYear();
-
-  const socialLinks = social_links?.map((link, i) => (
-    <Link key={i} href={link.link} target="_blank" rel="noreferrer">
-      <CustomIcon
-        icon={link.icon as IconName}
-        width={24}
-        height={24}
-        color="white"
-      />
-    </Link>
-  ));
 
   return (
     <footer className={cx("footer", { "footer--dark": !light })}>
@@ -48,15 +37,16 @@ const FooterClient: FC<FooterProps> = ({
         </div>
 
         <ul className={cx("footer__links")}>
-          {footerMenuData.length > 0 && (
-            <MenuList
-              data={footerMenuData.map(({ icon, ...rest }) => rest)}
-              frontPageID={1}
-            />
+          {menuDataPrimary && menuDataPrimary.length > 0 && (
+            <MenuList data={menuDataPrimary} frontPageID={1} />
           )}
         </ul>
 
-        <ul className={cx("footer__icons")}>{socialLinks}</ul>
+        <ul className={cx("footer__secondary-menu")}>
+          {menuDataSecondary && menuDataSecondary.length > 0 && (
+            <MenuList frontPageID={1} data={menuDataSecondary} />
+          )}
+        </ul>
       </div>
 
       <div

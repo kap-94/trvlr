@@ -8,21 +8,19 @@
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     // box-shadow: $shadow-blue;
 
     .trip-card__image {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
   }
 
   &__image-container {
     border-radius: $card-radius;
-    // box-shadow: 0 2px 4px rgba($primary-color, 0.2);
-    // box-shadow: $shadow-blue;
     position: relative;
     height: 240px;
     width: 100%;
@@ -31,7 +29,7 @@
 
   &__image {
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__content {

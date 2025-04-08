@@ -4,15 +4,9 @@
 .card {
   border-radius: $card-radius;
   position: relative;
-  // width: ;
   aspect-ratio: 16 / 9;
-  // height: 390px;
   overflow: hidden;
-  transition: transform 0.3s ease;
-
-  // @media only screen and (max-width: $xlarge) {
-  //   aspect-ratio: 2 / 1;
-  // }
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover .card__image {
     transform: scale(1.1);
@@ -27,7 +21,7 @@
   &__image {
     z-index: 1;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__overlay {

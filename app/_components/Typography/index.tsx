@@ -55,11 +55,11 @@ export const Typography: React.FC<
 
   // Mapeo de fuentes según el variant
   const fontMapping: { [key in TypographyVariant]: string } = {
-    h1: dmSerifDisplay.className,
-    h2: dmSerifDisplay.className,
-    h3: dmSerifDisplay.className,
-    h4: dmSerifDisplay.className,
-    h5: dmSerifDisplay.className,
+    h1: raleway.className,
+    h2: raleway.className,
+    h3: raleway.className,
+    h4: raleway.className,
+    h5: raleway.className,
     p1: raleway.className,
     p2: raleway.className,
     p3: raleway.className,
@@ -71,7 +71,7 @@ export const Typography: React.FC<
   const selectedFontFamily = fontFamily
     ? fontFamily === "raleway"
       ? raleway.className
-      : dmSerifDisplay.className
+      : ""
     : fontMapping[variant];
 
   const Component = componentMapping[variant];
