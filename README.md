@@ -9,7 +9,7 @@ TRVLR is a modern travel website featuring destination search, guides, and blogs
 ## ✨ Features
 
 - **Destination search** - Easily find places to visit around the world
-- **Customized travel guides** - Detailed information about each destination
+- **Travel guides** - Detailed information about each destination
 - **Itinerary planner** - Organize your trip day by day
 - **Blogs and recommendations** - Tips from travelers and local experts
 - **Interactive map visualization** - Explore locations and routes
