@@ -23,31 +23,26 @@ export default async function Home() {
     const latestPosts = await blogService.getLatestPosts();
 
     return (
-      <div>
-        <main>
-          <HeroVideo slidesData={heroSlides}>
-            <SearchCard />
-          </HeroVideo>
+      <>
+        <HeroVideo slidesData={heroSlides}>
+          <SearchCard />
+        </HeroVideo>
 
-          <FeaturedTrips trips={featuredTrips} />
+        <FeaturedTrips trips={featuredTrips} />
 
-          <TravelGrid items={layoutItems} variant="variant2" />
+        <TravelGrid items={layoutItems} variant="variant2" />
 
-          <BlogPreview
-            featuredPosts={featuredPosts}
-            latestPosts={latestPosts}
-          />
+        <BlogPreview featuredPosts={featuredPosts} latestPosts={latestPosts} />
 
-          {/* <TravelGrid items={layoutItems} variant="variant2" /> */}
+        {/* <TravelGrid items={layoutItems} variant="variant2" /> */}
 
-          {/* <CardSlider
+        {/* <CardSlider
             eyebrow="News & updates"
             title="The Hotest Trips"
             isCentered={true}
             showButtons="none"
           /> */}
-        </main>
-      </div>
+      </>
     );
   } catch (error) {
     if (error instanceof ServiceError) {
