@@ -19,8 +19,6 @@ export const headerData: HeaderProps = {
         title: "Explorer's Blog",
         target: "_self",
         url: "/blog",
-        iconSource: "lucide",
-        // lucideIcon: "compass", // Compass representa mejor la exploración y el descubrimiento
       },
 
       // Submenu items for "Destinations"
@@ -29,9 +27,12 @@ export const headerData: HeaderProps = {
       {
         menu_item_id: 742,
         menu_item_parent: 0,
-        title: "Why Travel",
+        title: "Why Travel ?",
         target: "_self",
         url: "/why-travel",
+        iconSource: "lucide",
+        lucideIcon: "compass",
+        // lucideIcon: "map",
         // icon: "clock",
       },
     ],
@@ -86,30 +87,38 @@ export const headerData: HeaderProps = {
 
 export const footerData: FooterProps = {
   light: true,
-  footerMenuData: [
+
+  menuDataPrimary: [
     {
-      menu_item_id: 38,
+      menu_item_id: 7,
       menu_item_parent: 0,
       title: "Travel Guides",
       target: "_self",
       url: "/trips",
-      showDropdownIcon: false,
+      iconSource: "lucide",
+      // lucideIcon: "map", // El icono de mapa tiene más sentido para guías de viaje
     },
-    // {
-    //   menu_item_id: 737,
-    //   menu_item_parent: 0,
-    //   title: "Our Journey",
-    //   target: "/blog",
-    //   url: "/blog",
-    //   icon: "boat",
-    // },
     {
-      menu_item_id: 37,
+      menu_item_id: 8,
       menu_item_parent: 0,
-      // title: "Blog & Beyond",
       title: "Explorer's Blog",
       target: "_self",
       url: "/blog",
+    },
+
+    // Submenu items for "Destinations"
+  ],
+  menuDataSecondary: [
+    {
+      menu_item_id: 9,
+      menu_item_parent: 0,
+      title: "Why Travel ?",
+      target: "_self",
+      url: "/why-travel",
+      iconSource: "lucide",
+      lucideIcon: "compass",
+      // lucideIcon: "map",
+      // icon: "clock",
     },
   ],
   frontPageID: "12345",

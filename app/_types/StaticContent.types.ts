@@ -62,7 +62,8 @@ interface FooterOptions {
 
 export interface FooterProps {
   light?: boolean;
-  footerMenuData: any[];
+  menuDataPrimary: MenuItem[]
+  menuDataSecondary: MenuItem[];
   frontPageID: string;
   options: FooterOptions;
 }
