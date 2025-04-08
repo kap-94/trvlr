@@ -1,4 +1,3 @@
-// app/_components/Footer/index.tsx
 import { createStaticContentService } from "@/app/_services";
 import FooterClient from "./FooterClient";
 
@@ -13,8 +12,10 @@ export default async function Footer() {
   return (
     <FooterClient
       frontPageID={footerData.frontPageID}
-      footerMenuData={footerData.footerMenuData}
+      menuDataPrimary={footerData.menuDataPrimary}
+      menuDataSecondary={footerData.menuDataSecondary}
       options={footerData.options}
+      light={footerData.light}
     />
   );
 }

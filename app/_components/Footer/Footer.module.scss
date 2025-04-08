@@ -103,7 +103,7 @@
     }
   }
 
-  &__icons {
+  &__secondary-menu {
     justify-content: flex-end;
     gap: 32px;
     list-style: none;
@@ -118,6 +118,17 @@
 
     @media only screen and (max-width: 680px) {
       gap: 16px;
+    }
+
+    li a {
+      color: $white-color;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: #286457;
+      }
     }
   }
 
