@@ -100,6 +100,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+
     width: 100%;
     max-width: 572px;
     padding: 0;
@@ -119,8 +120,22 @@
   // Modificadores y media queries
   &.small {
     max-width: 640px;
-    width: 360px;
+    min-width: 360px;
+    width: 100%;
     box-shadow: 0 2px 4px rgba($primary-color, 0.15);
+
+    .form__dropdown-wrapper {
+      left: auto;
+      right: 0;
+    }
+
+    @media only screen and (max-width: 900px) {
+      min-width: 300px;
+
+      .form__dropdown-wrapper {
+        right: 30%;
+      }
+    }
 
     .form {
       &__input-group {
